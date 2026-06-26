@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About ColorSpark | Our Story, Mission & Creative Team</title>
+  <meta name="description" content="Learn about ColorSpark — the creative publishing team behind your favorite coloring books. Our story, mission, illustration process, and educational philosophy." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <style>
+    .page-scroll-progress { position:fixed;top:0;left:0;height:3px;background:var(--grad-rainbow);z-index:2000;width:0; }
+    /* Team card */
+    .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; text-align: center; transition: all var(--transition); box-shadow: var(--shadow-card); }
+    .team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .team-avatar { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; margin: 0 auto 1rem; border: 4px solid var(--border); }
+    .team-name { font-family: var(--font-heading); font-weight: 900; font-size: 1.1rem; margin-bottom: .25rem; }
+    .team-role { font-size: .85rem; color: var(--sky-blue); font-weight: 600; margin-bottom: .75rem; }
+    .team-bio { font-size: .88rem; color: var(--text-muted); line-height: 1.6; }
+    /* Timeline */
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--sky-blue), var(--purple), var(--coral)); }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -34px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--sky-blue); border: 3px solid var(--bg-base); box-shadow: 0 0 0 3px var(--sky-blue); }
+    .timeline-year { font-family: var(--font-heading); font-weight: 900; color: var(--sky-blue); font-size: .9rem; margin-bottom: .3rem; }
+    .timeline-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.05rem; margin-bottom: .4rem; }
+    .timeline-text { font-size: .9rem; color: var(--text-muted); line-height: 1.65; }
+    /* Mission values */
+    .value-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; text-align: center; transition: all var(--transition); }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .value-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+    /* Quote block */
+    .quote-block { background: linear-gradient(135deg, var(--sky-blue), var(--purple)); border-radius: var(--radius-xl); padding: 3rem; text-align: center; color: #fff; position: relative; overflow: hidden; }
+    .quote-block::before { content: '"'; font-size: 10rem; font-family: var(--font-heading); position: absolute; top: -20px; left: 24px; opacity: .15; line-height: 1; }
+    .quote-text { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.1rem,2vw,1.5rem); line-height: 1.65; position: relative; z-index: 1; margin-bottom: 1.5rem; }
+    .quote-attr { font-size: .9rem; opacity: .8; position: relative; z-index: 1; }
+    /* Process steps */
+    .process-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.5rem; }
+    .process-card { text-align: center; padding: 2rem 1.5rem; }
+    .process-num { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: #fff; margin: 0 auto 1rem; }
+    .process-title { font-family: var(--font-heading); font-weight: 800; font-size: 1rem; margin-bottom: 1rem; text-align: center; }
+    .process-text { font-size: .88rem; color: var(--text-muted); line-height: 1.65; text-align: center; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="page-scroll-progress"></div>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><div class="nav-logo-icon">🎨</div><span>ColorSpark</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="free-downloads.html" class="nav-link">Free Downloads</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="control-btn theme-toggle-btn">🌙</button>
+        <button class="control-btn rtl-toggle-btn">↔️</button>
+        <button class="nav-icon-btn open-cart-btn">🛒<span class="cart-count">0</span></button>
+        <a href="login.html" class="btn btn-primary btn-sm">Signup</a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="home2.html" class="nav-link">🏡 Home 2</a>
+    <a href="about.html" class="nav-link">💡 About</a>
+    <a href="blog.html" class="nav-link">📝 Blog</a>
+    <a href="collections.html" class="nav-link">📚 Collections</a>
+    <a href="shop.html" class="nav-link">🛍️ Shop</a>
+    <a href="free-downloads.html" class="nav-link">⬇️ Free Downloads</a>
+    <a href="contact.html" class="nav-link">📬 Contact</a>
+    <a href="login.html" class="nav-link">🔑 Login</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="floating-shapes" data-shape-count="8" style="opacity:.2;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="breadcrumb" style="justify-content:center;"><a href="index.html">Home</a> <span>›</span> <span>About</span></div>
+      <span class="section-label label-blue">Our Story</span>
+      <h1 class="reveal">About ColorSpark</h1>
+      <p class="reveal reveal-delay-1">A team of passionate artists, educators, and parents on a mission to spark creativity in every child, teen, and adult through the magic of coloring and creative activity.</p>
+    </div>
+  </section>
+
+  <!-- PUBLISHER STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="align-items:center;gap:4rem;">
+        <div class="reveal-left">
+          <span class="section-label label-coral">How It All Started</span>
+          <h2 class="section-title">The ColorSpark Story</h2>
+          <p style="margin-bottom:1.25rem;line-height:1.8;">ColorSpark was born in 2018 from a simple observation: coloring books were either too generic, too childish, or simply not educational enough. Our founders — a mother and a teacher — set out to change that.</p>
+          <p style="margin-bottom:1.25rem;line-height:1.8;">Starting with a single animal coloring book printed at a local shop and sold at a school fair, ColorSpark quickly grew word-of-mouth into a beloved brand trusted by families across the globe. What began as a passion project now serves over 50,000 families and 1,200 schools.</p>
+          <p style="line-height:1.8;">Every ColorSpark book is crafted with love, peer-reviewed by educators, and designed to make learning feel like an adventure. We believe that when creativity and education meet, something magical happens.</p>
+        </div>
+        <div class="reveal-right">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+            <div style="background:linear-gradient(135deg,var(--sky-blue),var(--purple));border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;"><div style="font-size:2.5rem;margin-bottom:.75rem;">🎨</div><div style="font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">2018</div><div style="opacity:.85;font-size:.85rem;">Founded</div></div>
+            <div style="background:linear-gradient(135deg,var(--coral),var(--yellow));border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;margin-top:1.5rem;"><div style="font-size:2.5rem;margin-bottom:.75rem;">📚</div><div style="font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">500+</div><div style="opacity:.85;font-size:.85rem;">Books Published</div></div>
+            <div style="background:linear-gradient(135deg,#4CAF50,#29B6F6);border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;"><div style="font-size:2.5rem;margin-bottom:.75rem;">👨‍👩‍👧</div><div style="font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">50K+</div><div style="opacity:.85;font-size:.85rem;">Happy Families</div></div>
+            <div style="background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;margin-top:1.5rem;"><div style="font-size:2.5rem;margin-bottom:.75rem;">🏫</div><div style="font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">1200+</div><div style="opacity:.85;font-size:.85rem;">Schools Served</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-yellow">What We Stand For</span>
+        <h2 class="section-title">Mission &amp; Vision</h2>
+      </div>
+      <div class="grid-2" style="gap:2rem;margin-bottom:3rem;">
+        <div class="value-card reveal reveal-delay-1" style="background:linear-gradient(135deg,var(--sky-blue-light),var(--purple-light));border:none;">
+          <span class="value-icon">🎯</span>
+          <h3 style="margin-bottom:.75rem;">Our Mission</h3>
+          <p>To create beautifully crafted coloring and activity books that spark creativity, support education, and bring joy to families and classrooms around the world.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2" style="background:linear-gradient(135deg,var(--yellow-light),var(--coral-light));border:none;">
+          <span class="value-icon">🔭</span>
+          <h3 style="margin-bottom:.75rem;">Our Vision</h3>
+          <p>A world where every child has access to high-quality creative learning resources — where art, imagination, and education are inseparable parts of growing up.</p>
+        </div>
+      </div>
+      <div class="grid-4">
+        <div class="value-card reveal reveal-delay-1"><span class="value-icon">🌍</span><h4>Inclusive</h4><p style="font-size:.88rem;">Books for all ages, abilities, and cultures — celebrating diversity through creativity.</p></div>
+        <div class="value-card reveal reveal-delay-2"><span class="value-icon">📚</span><h4>Educational</h4><p style="font-size:.88rem;">Every book designed with learning outcomes reviewed by certified educators.</p></div>
+        <div class="value-card reveal reveal-delay-3"><span class="value-icon">🌱</span><h4>Sustainable</h4><p style="font-size:.88rem;">Physical books printed on FSC-certified paper with eco-friendly inks.</p></div>
+        <div class="value-card reveal reveal-delay-4"><span class="value-icon">❤️</span><h4>Community</h4><p style="font-size:.88rem;">10% of profits donated to children's literacy programs globally.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATIVE TEAM -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-purple">The People Behind the Magic</span>
+        <h2 class="section-title">Meet Our Creative Team</h2>
+        <p class="section-subtitle">A diverse group of illustrators, educators, writers, and dreamers united by a love of creativity.</p>
+      </div>
+      <div class="grid-4">
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--sky-blue-light),var(--purple-light));border-color:var(--sky-blue);">👩</div>
+          <div class="team-name">Sarah Chen</div>
+          <div class="team-role">Co-founder & Creative Director</div>
+          <div class="team-bio">Former kindergarten teacher with 12 years in early childhood education. Every ColorSpark book starts with Sarah's vision.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--coral-light),var(--yellow-light));border-color:var(--coral);">👨</div>
+          <div class="team-name">Marcus Rivera</div>
+          <div class="team-role">Co-founder & Lead Illustrator</div>
+          <div class="team-bio">Classically trained illustrator and father of three. Marcus brings every character to life with warmth and precision.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--purple-light),var(--sky-blue-light));border-color:var(--purple);">👩‍💼</div>
+          <div class="team-name">Dr. Priya Patel</div>
+          <div class="team-role">Educational Content Director</div>
+          <div class="team-bio">PhD in Child Development. Priya ensures every book meets research-backed educational standards while staying genuinely fun.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-4">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--yellow-light),var(--coral-light));border-color:var(--yellow);">🧑‍🎨</div>
+          <div class="team-name">James Park</div>
+          <div class="team-role">Senior Illustrator & Art Lead</div>
+          <div class="team-bio">Comics artist and illustrator with a passion for dinosaurs, robots, and everything kids love. Creator of our best-selling Dino Series.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ILLUSTRATION PROCESS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-blue">Behind the Scenes</span>
+        <h2 class="section-title">How We Create a ColorSpark Book</h2>
+        <p class="section-subtitle">From concept to your child's hands — every book goes through a 6-step creative and educational review process.</p>
+      </div>
+      <div class="process-wrap">
+        <div class="process-card reveal reveal-delay-1">
+          <div class="process-num" style="background:var(--sky-blue);">1</div>
+          <div class="process-title">Theme Research</div>
+          <div class="process-text">Our team researches educational themes, age-appropriate content, and current curriculum standards before a single sketch is drawn.</div>
+        </div>
+        <div class="process-card reveal reveal-delay-2">
+          <div class="process-num" style="background:var(--purple);">2</div>
+          <div class="process-title">Concept Design</div>
+          <div class="process-text">Illustrators create initial character and scene concepts, balancing artistic appeal with the right level of complexity for the target age group.</div>
+        </div>
+        <div class="process-card reveal reveal-delay-3">
+          <div class="process-num" style="background:var(--coral);">3</div>
+          <div class="process-title">Educator Review</div>
+          <div class="process-text">Every book is reviewed by certified educators and child development specialists who ensure the content is age-appropriate and educationally rich.</div>
+        </div>
+        <div class="process-card reveal reveal-delay-4">
+          <div class="process-num" style="background:var(--yellow);">4</div>
+          <div class="process-title">Illustration &amp; Inking</div>
+          <div class="process-text">Final illustrations are created digitally with crisp, clean lines optimized for both screen display and high-quality printing.</div>
+        </div>
+        <div class="process-card reveal reveal-delay-1">
+          <div class="process-num" style="background:var(--green);">5</div>
+          <div class="process-title">Child Testing</div>
+          <div class="process-text">Real kids test every book! We observe which pages engage them most and make refinements based on genuine child feedback.</div>
+        </div>
+        <div class="process-card reveal reveal-delay-2">
+          <div class="process-num" style="background:var(--sky-blue-dark);">6</div>
+          <div class="process-title">Publish &amp; Ship</div>
+          <div class="process-text">Once approved, books are published as high-resolution PDFs and printed in our eco-certified printing partner facilities.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATIONAL PHILOSOPHY -->
+  <section class="section">
+    <div class="container">
+      <div class="quote-block reveal">
+        <div class="quote-text">
+          "We believe creativity is not a talent — it's a skill that every child deserves the opportunity to develop. When we put a blank coloring page in front of a child, we're not just asking them to stay in the lines. We're inviting them to see the world in color."
+        </div>
+        <div class="quote-attr">— Sarah Chen, Co-founder of ColorSpark</div>
+      </div>
+      <div class="grid-3" style="margin-top:3rem;">
+        <div class="reveal reveal-delay-1" style="background:var(--bg-soft);border-radius:var(--radius-xl);padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">🧠</div>
+          <h4>Constructivist Learning</h4>
+          <p style="font-size:.9rem;margin-top:.5rem;">We design activities that build on prior knowledge and encourage children to actively construct new understanding through hands-on creative work.</p>
+        </div>
+        <div class="reveal reveal-delay-2" style="background:var(--bg-soft);border-radius:var(--radius-xl);padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">🎭</div>
+          <h4>Multiple Intelligences</h4>
+          <p style="font-size:.9rem;margin-top:.5rem;">Our books engage visual-spatial, bodily-kinesthetic, and intrapersonal intelligences — supporting the full range of how children learn.</p>
+        </div>
+        <div class="reveal reveal-delay-3" style="background:var(--bg-soft);border-radius:var(--radius-xl);padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">🌈</div>
+          <h4>Play-Based Learning</h4>
+          <p style="font-size:.9rem;margin-top:.5rem;">Research shows children learn best when they're having fun. Every ColorSpark book embeds curriculum content within genuinely enjoyable activities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY TIMELINE -->
+  <section class="section section-alt">
+    <div class="container" style="max-width:800px;">
+      <div class="text-center reveal">
+        <span class="section-label label-coral">Our Journey</span>
+        <h2 class="section-title">ColorSpark Timeline</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-title">The First Book</div>
+          <div class="timeline-text">Sarah and Marcus publish their first hand-crafted Animal Kingdom coloring book at a school fair. 200 copies sell out in one afternoon.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-title">Going Digital</div>
+          <div class="timeline-text">ColorSpark launches its online store, offering 12 PDF download titles. Monthly sales reach 1,000 within 6 months.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-title">Supporting Families During Lockdown</div>
+          <div class="timeline-text">During the pandemic, ColorSpark offers 50 free coloring pages and gains an audience of 100,000 families across social media.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-title">First School Partnership</div>
+          <div class="timeline-text">Oakwood Primary School becomes our first bulk-order partner. The school program launches with 50 partner schools by year-end.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-title">500 Books Milestone</div>
+          <div class="timeline-text">ColorSpark publishes its 500th title, covering 9 major themed collections. The team grows to 18 full-time staff members.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-title">Serving 50,000+ Families</div>
+          <div class="timeline-text">ColorSpark now serves over 50,000 families and 1,200 schools worldwide, with new books launching every month.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-logo"><div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🎨</div><span>ColorSpark</span></div><p class="footer-desc">Premium coloring books for creative minds.</p><div class="footer-social">
+            <a href="#" class="social-btn" title="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="Pinterest">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.993 3.993-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.342-.091.381-.294 1.199-.334 1.363-.053.218-.176.265-.406.156-1.52-.707-2.47-2.932-2.47-4.717 0-3.839 2.79-7.365 8.044-7.365 4.223 0 7.503 3.01 7.503 7.029 0 4.194-2.643 7.571-6.312 7.571-1.233 0-2.393-.641-2.79-1.394 0 0-.61 2.324-.758 2.897-.275 1.056-1.014 2.381-1.51 3.192 1.125.328 2.311.507 3.537.507 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="YouTube">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div></div>
+        <div class="footer-col"><h5>Shop</h5><div class="footer-links"><a href="shop.html" class="footer-link">All Books</a><a href="free-downloads.html" class="footer-link">Free Downloads</a></div></div>
+        <div class="footer-col"><h5>About</h5><div class="footer-links"><a href="about.html" class="footer-link">Our Story</a><a href="about.html" class="footer-link">Team</a><a href="blog.html" class="footer-link">Blog</a></div></div>
+        <div class="footer-col"><h5>Help</h5><div class="footer-links"><a href="contact.html#faq-section" class="footer-link">FAQ</a><a href="contact.html" class="footer-link">Contact</a><a href="login.html" class="footer-link">Login</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 ColorSpark.</span></div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header"><div class="cart-title">🛒 Your Cart</div><button class="cart-close">✕</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer"><div class="cart-total"><span class="cart-total-label">Total</span><span class="cart-total-price" id="cart-total-price">$0.00</span></div><a href="shop.html" class="btn btn-primary" style="width:100%;justify-content:center;">💳 Checkout</a></div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <button class="scroll-top">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

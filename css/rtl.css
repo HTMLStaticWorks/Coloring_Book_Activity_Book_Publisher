@@ -1,0 +1,154 @@
+/* ============================================================
+   ColorSpark — rtl.css
+   Right-to-Left Language Support
+   ============================================================ */
+
+[dir="rtl"] {
+  /* Flip text alignment */
+  text-align: right;
+}
+
+/* Navigation */
+[dir="rtl"] .nav-container { flex-direction: row-reverse; }
+[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+[dir="rtl"] .nav-actions { flex-direction: row-reverse; }
+[dir="rtl"] .nav-logo { flex-direction: row-reverse; }
+
+/* Mobile nav */
+[dir="rtl"] .mobile-nav { left: 0; right: 0; }
+
+/* Cart drawer */
+[dir="rtl"] .cart-drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+[dir="rtl"] .cart-drawer.open { transform: translateX(0); }
+
+/* Scroll to top */
+[dir="rtl"] .scroll-top { right: auto; left: 28px; }
+
+/* Toast */
+[dir="rtl"] .toast { right: auto; left: 28px; }
+
+/* Product actions */
+[dir="rtl"] .product-actions {
+  right: auto;
+  left: 12px;
+  transform: translateX(-10px);
+}
+[dir="rtl"] .product-card:hover .product-actions { transform: translateX(0); }
+
+/* Product badge */
+[dir="rtl"] .product-badge { left: auto; right: 12px; }
+
+/* Accordion */
+[dir="rtl"] .accordion-header { flex-direction: row-reverse; }
+
+/* Flex rows */
+[dir="rtl"] .flex { flex-direction: row-reverse; }
+[dir="rtl"] .flex-between { flex-direction: row-reverse; }
+
+/* Section subtitle centering */
+[dir="rtl"] .text-center .section-subtitle { margin-inline: auto; }
+
+/* Steps timeline */
+[dir="rtl"] .step-item { flex-direction: row-reverse; }
+
+/* Form rows */
+[dir="rtl"] .form-row { direction: rtl; }
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-textarea,
+[dir="rtl"] .form-select {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Footer */
+[dir="rtl"] .footer-grid { direction: rtl; }
+[dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+[dir="rtl"] .footer-links { align-items: flex-end; }
+
+/* Tab nav */
+[dir="rtl"] .tab-nav { flex-direction: row-reverse; }
+
+/* Blog meta */
+[dir="rtl"] .blog-meta { flex-direction: row-reverse; }
+
+/* Trust strip */
+[dir="rtl"] .trust-item { flex-direction: row-reverse; }
+
+/* Hero */
+[dir="rtl"] .hero-content { text-align: right; }
+[dir="rtl"] .btn-group { flex-direction: row-reverse; }
+
+/* Newsletter form */
+[dir="rtl"] .newsletter-form { flex-direction: row-reverse; }
+
+/* Cart */
+[dir="rtl"] .cart-header { flex-direction: row-reverse; }
+[dir="rtl"] .cart-item { flex-direction: row-reverse; }
+[dir="rtl"] .cart-total { flex-direction: row-reverse; }
+
+/* Pricing */
+[dir="rtl"] .pricing-features li { flex-direction: row-reverse; }
+
+/* Testimonial */
+[dir="rtl"] .testimonial-author { flex-direction: row-reverse; }
+[dir="rtl"] .testimonial-card::before { left: auto; right: 24px; }
+
+/* Slider buttons */
+[dir="rtl"] .slider-btn-prev { left: auto; right: -20px; }
+[dir="rtl"] .slider-btn-next { right: auto; left: -20px; }
+
+/* Breadcrumb */
+[dir="rtl"] .breadcrumb { flex-direction: row-reverse; }
+
+/* Underline animate */
+[dir="rtl"] .underline-animate::after { left: auto; right: 0; }
+
+/* Grid items — text alignment */
+[dir="rtl"] .stat-card,
+[dir="rtl"] .category-card { text-align: center; }
+
+/* Gaps & margins — flip where needed */
+[dir="rtl"] .gap-sm  { gap: var(--space-sm); }
+[dir="rtl"] .gap-md  { gap: var(--space-md); }
+[dir="rtl"] .gap-lg  { gap: var(--space-lg); }
+
+/* Flip card */
+[dir="rtl"] .flip-back { transform: rotateY(-180deg); }
+[dir="rtl"] .flip-card:hover .flip-card-inner { transform: rotateY(-180deg); }
+
+/* Page hero */
+[dir="rtl"] .page-hero { direction: rtl; }
+
+/* Hero orbs - mirror */
+[dir="rtl"] .hero-orb-1 { right: auto; left: -100px; }
+[dir="rtl"] .hero-orb-3 { left: auto; right: -60px; }
+
+/* Floating shapes - mirror key positions */
+[dir="rtl"] .shape:nth-child(1) { left: auto; right: 5%; }
+[dir="rtl"] .shape:nth-child(2) { right: auto; left: 8%; }
+[dir="rtl"] .shape:nth-child(4) { right: auto; left: 5%; }
+[dir="rtl"] .shape:nth-child(5) { right: auto; left: 15%; }
+[dir="rtl"] .shape:nth-child(7) { right: auto; left: 20%; }
+
+/* Product rating */
+[dir="rtl"] .product-rating { flex-direction: row-reverse; }
+
+/* Nav icon btn - cart count flip */
+[dir="rtl"] .cart-count { right: auto; left: -4px; }
+
+/* Download card */
+[dir="rtl"] .download-info { text-align: right; }
+
+/* School stat checklist */
+[dir="rtl"] .school-stat {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  text-align: right;
+}
+[dir="rtl"] .school-stat span:last-child {
+  text-align: right;
+}

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ColorSpark – Home 2 | Interactive Seasonal Collections</title>
+  <meta name="description" content="Explore ColorSpark's seasonal collections, best sellers, and interactive learning activities. Download free samples and discover books for every season." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <style>
+    /* Hero 2 */
+    .hero2 { min-height: 100vh; background: var(--grad-hero); position: relative; overflow: hidden; display: flex; align-items: center; padding-top: var(--nav-h); }
+    .hero2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 900px) { .hero2-grid { grid-template-columns: 1fr; text-align: center; } }
+    .hero2 h1 { color: var(--text-primary); font-size: clamp(2.4rem, 5vw, 4.2rem); margin-bottom: 1.25rem; }
+    .hero2 p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
+    .hero2-visual { position: relative; display: flex; justify-content: center; }
+    .interactive-book { width: 280px; height: 340px; background: linear-gradient(135deg, var(--sky-blue), var(--purple)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 8rem; cursor: pointer; box-shadow: 0 30px 80px rgba(41,182,246,.5); animation: floatBook 4s ease-in-out infinite; transition: all .3s; position: relative; }
+    .interactive-book:hover { transform: scale(1.05) rotate(3deg); }
+    .page-turn-hint { position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); color: var(--text-muted); font-size: .82rem; font-weight: 600; white-space: nowrap; }
+    /* Orbit badges */
+    .orbit-badge { position: absolute; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: .6rem 1rem; color: var(--text-primary); font-family: var(--font-heading); font-weight: 700; font-size: .82rem; box-shadow: var(--shadow-sm); backdrop-filter: blur(12px); }
+    .ob-1 { top: 0; left: -60px; }
+    .ob-2 { bottom: 60px; right: -60px; }
+    .ob-3 { top: 40%; left: -80px; }
+    /* Seasonal */
+    .season-card { border-radius: var(--radius-xl); padding: 2.5rem; text-align: center; position: relative; overflow: hidden; cursor: pointer; transition: all var(--transition); min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .season-card:hover { transform: translateY(-8px) scale(1.02); }
+    .season-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .season-title { font-family: var(--font-heading); font-weight: 900; font-size: 1.3rem; color: #fff; margin-bottom: .5rem; }
+    .season-count { font-size: .88rem; color: rgba(255,255,255,.8); }
+    /* Learning */
+    .learn-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: all var(--transition); box-shadow: var(--shadow-card); }
+    .learn-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .learn-icon { width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+    /* Activity types */
+    .activity-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition); box-shadow: var(--shadow-card); text-align: center; }
+    .activity-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .activity-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .activity-info { padding: 1.25rem; }
+    .activity-name { font-family: var(--font-heading); font-weight: 800; font-size: 1rem; margin-bottom: .3rem; }
+    .activity-count { font-size: .82rem; color: var(--text-muted); }
+    /* Download cards */
+    .free-card { background: var(--bg-card); border: 2px dashed var(--border); border-radius: var(--radius-xl); padding: 2rem; text-align: center; transition: all var(--transition); }
+    .free-card:hover { border-color: var(--green); transform: translateY(-4px); }
+    .free-emoji { font-size: 3.5rem; display: block; margin-bottom: 1rem; }
+    /* Contact CTA section */
+    .contact-cta { background: var(--grad-blue); border-radius: var(--radius-xl); padding: 4rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    .contact-cta h2, .contact-cta p { color: #fff; }
+    .contact-cta p { opacity: .85; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><div class="nav-logo-icon">🎨</div><span>ColorSpark</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="free-downloads.html" class="nav-link">Free Downloads</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="control-btn theme-toggle-btn" title="Toggle Dark Mode">🌙</button>
+        <button class="control-btn rtl-toggle-btn" title="Toggle RTL">↔️</button>
+        <button class="nav-icon-btn open-cart-btn">🛒<span class="cart-count">0</span></button>
+        <a href="login.html" class="btn btn-primary btn-sm">Signup</a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="home2.html" class="nav-link">🏡 Home 2</a>
+    <a href="about.html" class="nav-link">💡 About</a>
+    <a href="blog.html" class="nav-link">📝 Blog</a>
+    <a href="collections.html" class="nav-link">📚 Collections</a>
+    <a href="shop.html" class="nav-link">🛍️ Shop</a>
+    <a href="free-downloads.html" class="nav-link">⬇️ Free Downloads</a>
+    <a href="contact.html" class="nav-link">📬 Contact</a>
+    <a href="login.html" class="nav-link">🔑 Login</a>
+  </div>
+
+  <!-- ── HERO 2 ────────────────────────────────────── -->
+  <section class="hero2">
+    <div class="hero-orb hero-orb-1" style="opacity:.15;"></div>
+    <div class="hero-orb hero-orb-2" style="background:var(--coral);opacity:.12;"></div>
+    <div class="floating-shapes" data-shape-count="8" style="opacity:.15;"></div>
+    <div class="container">
+      <div class="hero2-grid">
+        <div>
+          <div class="section-label label-blue" style="background:rgba(41,182,246,.15);color:var(--sky-blue);margin-bottom:1.25rem;display:inline-block;">🌟 New Alternative Home Layout</div>
+          <h1>
+            <span class="hero-line hero-line-1">Color Your</span>
+            <span class="hero-line hero-line-2"><span class="gradient-text">World Bright</span></span>
+            <span class="hero-line hero-line-3">Every Season 🌈</span>
+          </h1>
+          <p>Discover seasonal coloring collections, educational activity packs, and mindful art experiences — updated every season to keep the creativity flowing.</p>
+          <div class="btn-group">
+            <a href="collections.html" class="btn btn-secondary btn-lg">🗂️ Explore Collections</a>
+            <a href="free-downloads.html" class="btn btn-outline btn-lg">⬇️ Free Samples</a>
+          </div>
+          <!-- live stats -->
+          <div style="display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;">
+            <div><div style="color:var(--text-primary);font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">500+</div><div style="color:var(--text-secondary);font-size:.85rem;">Unique Books</div></div>
+            <div><div style="color:var(--text-primary);font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">4.9 ⭐</div><div style="color:var(--text-secondary);font-size:.85rem;">Avg Rating</div></div>
+            <div><div style="color:var(--text-primary);font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">50K+</div><div style="color:var(--text-secondary);font-size:.85rem;">Customers</div></div>
+          </div>
+        </div>
+        <div class="hero2-visual reveal-right">
+          <div style="position:relative;">
+            <div class="interactive-book" id="interactiveBook">📚</div>
+            <div class="page-turn-hint">👆 Click to flip!</div>
+            <div class="orbit-badge ob-1">✨ 500+ Books</div>
+            <div class="orbit-badge ob-2">🔥 Best Seller</div>
+            <div class="orbit-badge ob-3">⬇️ Instant PDF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const bookEmojis = ['📚','🦕','🚀','🌸','🐾','🌈','🦁','🔤'];
+      let bookIdx = 0;
+      document.getElementById('interactiveBook')?.addEventListener('click', function(){
+        bookIdx = (bookIdx + 1) % bookEmojis.length;
+        this.style.animation = 'pageFlip 0.6s ease-in-out';
+        this.textContent = bookEmojis[bookIdx];
+        setTimeout(() => this.style.animation = 'floatBook 4s ease-in-out infinite', 600);
+      });
+    </script>
+  </section>
+
+  <!-- ── SEASONAL COLLECTIONS ──────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-coral">Year-Round Fun</span>
+        <h2 class="section-title">Seasonal Collections</h2>
+        <p class="section-subtitle">Fresh coloring themes for every season — updated quarterly to keep creativity flowing all year long.</p>
+      </div>
+      <div class="grid-4">
+        <div class="season-card reveal reveal-delay-1" style="background:linear-gradient(135deg,#FF6B47,#FFD600);">
+          <span class="season-icon">🌸</span>
+          <div class="season-title">Spring Bloom</div>
+          <div class="season-count">24 Books in Collection</div>
+          <a href="collections.html" class="btn btn-outline-white btn-sm" style="margin-top:1rem;">Explore →</a>
+        </div>
+        <div class="season-card reveal reveal-delay-2" style="background:linear-gradient(135deg,#29B6F6,#FFD600);">
+          <span class="season-icon">☀️</span>
+          <div class="season-title">Summer Fun</div>
+          <div class="season-count">32 Books in Collection</div>
+          <a href="collections.html" class="btn btn-outline-white btn-sm" style="margin-top:1rem;">Explore →</a>
+        </div>
+        <div class="season-card reveal reveal-delay-3" style="background:linear-gradient(135deg,#FF8F00,#E53935);">
+          <span class="season-icon">🍂</span>
+          <div class="season-title">Autumn Harvest</div>
+          <div class="season-count">18 Books in Collection</div>
+          <a href="collections.html" class="btn btn-outline-white btn-sm" style="margin-top:1rem;">Explore →</a>
+        </div>
+        <div class="season-card reveal reveal-delay-4" style="background:linear-gradient(135deg,#1565C0,#9B59B6);">
+          <span class="season-icon">❄️</span>
+          <div class="season-title">Winter Magic</div>
+          <div class="season-count">28 Books in Collection</div>
+          <a href="collections.html" class="btn btn-outline-white btn-sm" style="margin-top:1rem;">Explore →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BEST SELLERS ────────────────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="flex-between reveal" style="flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
+        <div>
+          <span class="section-label label-yellow">Top Rated</span>
+          <h2 class="section-title" style="margin-bottom:0;">Best Seller Books</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline">View All →</a>
+      </div>
+      <div class="grid-4">
+        <div class="product-card tilt-card reveal reveal-delay-1" data-id="bs1" data-name="Mandala Calm Coloring" data-price="9.99" data-emoji="🌸" data-type="Digital PDF" data-pages="60" data-age="14+" data-reviews="506" data-desc="60 intricate mandala designs for mindful coloring." data-rating="5">
+          <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(145deg,#F3E5F5,#EDE7F6);">🌸</div></div>
+          <span class="product-badge badge-best">BEST SELLER</span>
+          <div class="product-actions">
+            <button class="product-action-btn wishlist-btn" data-id="bs1">🤍</button>
+            <button class="product-action-btn quick-preview-btn">👁️</button>
+          </div>
+          <div class="product-info">
+            <h4>Mandala Calm Coloring</h4><div class="author">Ages 14+</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(506)</span></div>
+            <div class="product-price"><span class="price-current">$9.99</span></div>
+            <button class="product-add-btn" data-id="bs1" data-name="Mandala Calm Coloring" data-price="9.99" data-emoji="🌸" data-type="Digital PDF">🛒 Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card tilt-card reveal reveal-delay-2" data-id="bs2" data-name="Dino World Adventure" data-price="8.99" data-emoji="🦕" data-type="Digital PDF" data-pages="48" data-age="4–8" data-reviews="342" data-desc="48 pages of prehistoric dino coloring fun!" data-rating="5">
+          <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(145deg,#E3F2FD,#FFF8E1);">🦕</div></div>
+          <span class="product-badge badge-best">BEST SELLER</span>
+          <div class="product-actions">
+            <button class="product-action-btn wishlist-btn" data-id="bs2">🤍</button>
+            <button class="product-action-btn quick-preview-btn">👁️</button>
+          </div>
+          <div class="product-info">
+            <h4>Dino World Adventure</h4><div class="author">Ages 4–8</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(342)</span></div>
+            <div class="product-price"><span class="price-current">$8.99</span></div>
+            <button class="product-add-btn" data-id="bs2" data-name="Dino World Adventure" data-price="8.99" data-emoji="🦕" data-type="Digital PDF">🛒 Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card tilt-card reveal reveal-delay-3" data-id="bs3" data-name="Superhero Activity Pack" data-price="11.99" data-emoji="🦸" data-type="Physical Book" data-pages="80" data-age="6–10" data-reviews="298" data-original="16.99" data-desc="Action-packed superhero coloring & activities." data-rating="5">
+          <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(145deg,#FFF3F1,#F3E5F5);">🦸</div></div>
+          <span class="product-badge badge-sale">SALE</span>
+          <div class="product-actions">
+            <button class="product-action-btn wishlist-btn" data-id="bs3">🤍</button>
+            <button class="product-action-btn quick-preview-btn">👁️</button>
+          </div>
+          <div class="product-info">
+            <h4>Superhero Activity Pack</h4><div class="author">Ages 6–10</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(298)</span></div>
+            <div class="product-price"><span class="price-current">$11.99</span><span class="price-original">$16.99</span></div>
+            <button class="product-add-btn" data-id="bs3" data-name="Superhero Activity Pack" data-price="11.99" data-emoji="🦸" data-type="Physical Book">🛒 Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card tilt-card reveal reveal-delay-4" data-id="bs4" data-name="Botanical Art Book" data-price="14.99" data-emoji="🌺" data-type="Physical Book" data-pages="72" data-age="Adults" data-reviews="312" data-desc="Gorgeous botanical illustrations for adult colorists." data-rating="5">
+          <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(145deg,#E8F5E9,#F1F8E9);">🌺</div></div>
+          <span class="product-badge badge-new">NEW</span>
+          <div class="product-actions">
+            <button class="product-action-btn wishlist-btn" data-id="bs4">🤍</button>
+            <button class="product-action-btn quick-preview-btn">👁️</button>
+          </div>
+          <div class="product-info">
+            <h4>Botanical Art Book</h4><div class="author">Adults</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(312)</span></div>
+            <div class="product-price"><span class="price-current">$14.99</span></div>
+            <button class="product-add-btn" data-id="bs4" data-name="Botanical Art Book" data-price="14.99" data-emoji="🌺" data-type="Physical Book">🛒 Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LEARNING THROUGH PLAY ──────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="align-items:center;gap:4rem;">
+        <div class="reveal-left">
+          <span class="section-label label-purple">Our Philosophy</span>
+          <h2 class="section-title">Learning Through Play &amp; Creativity</h2>
+          <p style="margin-bottom:2rem;line-height:1.75;">At ColorSpark, we believe that the best learning happens when children are having fun. Every book is designed by educators and artists to blend creative expression with meaningful educational content.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div class="learn-card">
+              <div class="learn-icon" style="background:var(--sky-blue-light);">🧠</div>
+              <div><strong>Cognitive Development</strong><br><small style="color:var(--text-muted);">Pattern recognition, color theory, and spatial thinking woven into every page.</small></div>
+            </div>
+            <div class="learn-card">
+              <div class="learn-icon" style="background:var(--yellow-light);">✋</div>
+              <div><strong>Fine Motor Skills</strong><br><small style="color:var(--text-muted);">Carefully designed line weights and detail levels appropriate for each age group.</small></div>
+            </div>
+            <div class="learn-card">
+              <div class="learn-icon" style="background:var(--coral-light);">🎨</div>
+              <div><strong>Artistic Expression</strong><br><small style="color:var(--text-muted);">Open-ended creative activities that encourage personal style and confidence.</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+            <div style="background:linear-gradient(135deg,var(--sky-blue),var(--purple));border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;">
+              <div style="font-size:3rem;margin-bottom:.75rem;">🎓</div>
+              <div style="font-family:var(--font-heading);font-weight:900;font-size:1.5rem;">98%</div>
+              <div style="opacity:.85;font-size:.85rem;">Teachers recommend our books</div>
+            </div>
+            <div style="background:linear-gradient(135deg,var(--coral),var(--yellow));border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;margin-top:1.5rem;">
+              <div style="font-size:3rem;margin-bottom:.75rem;">⭐</div>
+              <div style="font-family:var(--font-heading);font-weight:900;font-size:1.5rem;">4.9/5</div>
+              <div style="opacity:.85;font-size:.85rem;">Average parent rating</div>
+            </div>
+            <div style="background:linear-gradient(135deg,#4CAF50,#29B6F6);border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;">
+              <div style="font-size:3rem;margin-bottom:.75rem;">📚</div>
+              <div style="font-family:var(--font-heading);font-weight:900;font-size:1.5rem;">500+</div>
+              <div style="opacity:.85;font-size:.85rem;">Unique book titles</div>
+            </div>
+            <div style="background:linear-gradient(135deg,var(--purple),var(--coral));border-radius:var(--radius-xl);padding:2rem;color:#fff;text-align:center;margin-top:1.5rem;">
+              <div style="font-size:3rem;margin-bottom:.75rem;">🏫</div>
+              <div style="font-family:var(--font-heading);font-weight:900;font-size:1.5rem;">1200+</div>
+              <div style="opacity:.85;font-size:.85rem;">Schools served worldwide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACTIVITY TYPES ─────────────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-blue">Something for Everyone</span>
+        <h2 class="section-title">Activity Types Showcase</h2>
+        <p class="section-subtitle">Beyond coloring — our books include a wide range of engaging activity types to keep every child entertained and learning.</p>
+      </div>
+      <div class="grid-4">
+        <div class="activity-card reveal reveal-delay-1">
+          <div class="activity-img" style="background:linear-gradient(145deg,#E3F2FD,#F3E5F5);">🎨</div>
+          <div class="activity-info"><div class="activity-name">Coloring Pages</div><div class="activity-count">180+ designs</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-2">
+          <div class="activity-img" style="background:linear-gradient(145deg,#FFF8E1,#FFF3F1);">✏️</div>
+          <div class="activity-info"><div class="activity-name">Tracing & Drawing</div><div class="activity-count">90+ exercises</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-3">
+          <div class="activity-img" style="background:linear-gradient(145deg,#E8F5E9,#E3F2FD);">🧩</div>
+          <div class="activity-info"><div class="activity-name">Puzzles & Mazes</div><div class="activity-count">65+ challenges</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-4">
+          <div class="activity-img" style="background:linear-gradient(145deg,#F3E5F5,#FFF8E1);">🔢</div>
+          <div class="activity-info"><div class="activity-name">Connect the Dots</div><div class="activity-count">40+ pages</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-1">
+          <div class="activity-img" style="background:linear-gradient(145deg,#FFF3F1,#E3F2FD);">🔤</div>
+          <div class="activity-info"><div class="activity-name">Letter & Number Practice</div><div class="activity-count">120+ worksheets</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-2">
+          <div class="activity-img" style="background:linear-gradient(145deg,#E8F5E9,#FFF3F1);">✂️</div>
+          <div class="activity-info"><div class="activity-name">Cut & Paste</div><div class="activity-count">30+ activities</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-3">
+          <div class="activity-img" style="background:linear-gradient(145deg,#EDE7F6,#E3F2FD);">🎭</div>
+          <div class="activity-info"><div class="activity-name">Storytelling Prompts</div><div class="activity-count">50+ prompts</div></div>
+        </div>
+        <div class="activity-card reveal reveal-delay-4">
+          <div class="activity-img" style="background:linear-gradient(145deg,#FFF8E1,#E8F5E9);">📐</div>
+          <div class="activity-info"><div class="activity-name">Pattern Recognition</div><div class="activity-count">45+ activities</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CUSTOMER REVIEWS ───────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-yellow">Real Reviews</span>
+        <h2 class="section-title">Customer Reviews</h2>
+      </div>
+      <div class="slider-wrap reveal" style="max-width:800px;margin:0 auto;">
+        <div class="slider-track">
+          <div class="slider-slide" style="padding:0 1rem;">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"We've been using ColorSpark books in our homeschool for 2 years. The quality, variety, and educational depth are unmatched. My kids never get bored and they're learning so much!"</p>
+              <div class="testimonial-author">
+                <img class="author-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80" alt="Emily Chen" />
+                <div>
+                  <div class="author-name">Emily Chen</div>
+                  <div class="author-role">Homeschool Parent</div>
+                  <div class="author-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-slide" style="padding:0 1rem;">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"I bought the adult mandala pack as a gift for my mom and she absolutely loves it! The paper quality, the intricacy of the designs — everything is top-notch. She's been coloring every evening."</p>
+              <div class="testimonial-author">
+                <img class="author-avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&h=120&q=80" alt="Daniel Torres" />
+                <div>
+                  <div class="author-name">Daniel Torres</div>
+                  <div class="author-role">Gift Buyer</div>
+                  <div class="author-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-slide" style="padding:0 1rem;">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"As a kindergarten teacher, finding quality educational coloring materials is always a challenge. ColorSpark has solved that problem completely. My students love the animal books!"</p>
+              <div class="testimonial-author">
+                <img class="author-avatar" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=120&h=120&q=80" alt="Ms. Rodriguez" />
+                <div>
+                  <div class="author-name">Ms. Rodriguez</div>
+                  <div class="author-role">Kindergarten Teacher</div>
+                  <div class="author-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="slider-btn slider-btn-prev">←</button>
+        <button class="slider-btn slider-btn-next">→</button>
+        <div class="slider-nav">
+          <div class="slider-dot active"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DOWNLOAD FREE SAMPLES ──────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label label-purple" style="background:var(--purple-light);color:var(--purple-dark);">🎁 Completely Free</span>
+        <h2 class="section-title">Download Free Samples</h2>
+        <p class="section-subtitle">Try before you buy! Download 3 free sample pages from our most popular books — no credit card required.</p>
+      </div>
+      <div class="grid-3">
+        <div class="free-card reveal reveal-delay-1">
+          <span class="free-emoji">🦁</span>
+          <h4 style="font-family:var(--font-heading);margin-bottom:.5rem;">Lion Coloring Page</h4>
+          <p style="font-size:.88rem;margin-bottom:1.25rem;">Ages 4–8 · 1 Page · PDF</p>
+          <a href="free-downloads.html" class="btn btn-yellow btn-sm" style="width:100%;justify-content:center;">⬇️ Download Free</a>
+        </div>
+        <div class="free-card reveal reveal-delay-2">
+          <span class="free-emoji">🌸</span>
+          <h4 style="font-family:var(--font-heading);margin-bottom:.5rem;">Mandala Sample Page</h4>
+          <p style="font-size:.88rem;margin-bottom:1.25rem;">Ages 12+ · 1 Page · PDF</p>
+          <a href="free-downloads.html" class="btn btn-yellow btn-sm" style="width:100%;justify-content:center;">⬇️ Download Free</a>
+        </div>
+        <div class="free-card reveal reveal-delay-3">
+          <span class="free-emoji">🚀</span>
+          <h4 style="font-family:var(--font-heading);margin-bottom:.5rem;">Space Activity Sheet</h4>
+          <p style="font-size:.88rem;margin-bottom:1.25rem;">Ages 6–12 · 1 Page · PDF</p>
+          <a href="free-downloads.html" class="btn btn-yellow btn-sm" style="width:100%;justify-content:center;">⬇️ Download Free</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="free-downloads.html" class="btn btn-secondary btn-lg">View All Free Downloads →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT CTA ────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-cta reveal">
+        <div class="floating-shapes" data-shape-count="5" style="opacity:.2;"></div>
+        <div style="position:relative;z-index:2;">
+          <h2>Have Questions? We're Here to Help!</h2>
+          <p>Whether you need help choosing the right book, want to set up a school account, or have a custom order request — our friendly team is ready to assist.</p>
+          <div class="btn-group" style="justify-content:center;">
+            <a href="contact.html" class="btn btn-yellow btn-lg confetti-btn">📬 Contact Us</a>
+            <a href="contact.html#faq-section" class="btn btn-outline-white btn-lg">❓ Browse FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🎨</div><span>ColorSpark</span></div>
+          <p class="footer-desc">Premium coloring & activity books for creative minds of all ages.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" title="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="Pinterest">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.993 3.993-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.342-.091.381-.294 1.199-.334 1.363-.053.218-.176.265-.406.156-1.52-.707-2.47-2.932-2.47-4.717 0-3.839 2.79-7.365 8.044-7.365 4.223 0 7.503 3.01 7.503 7.029 0 4.194-2.643 7.571-6.312 7.571-1.233 0-2.393-.641-2.79-1.394 0 0-.61 2.324-.758 2.897-.275 1.056-1.014 2.381-1.51 3.192 1.125.328 2.311.507 3.537.507 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="YouTube">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col"><h5>Shop</h5><div class="footer-links"><a href="shop.html" class="footer-link">All Books</a><a href="shop.html" class="footer-link">Digital Downloads</a><a href="shop.html" class="footer-link">Physical Books</a><a href="free-downloads.html" class="footer-link">Free Samples</a></div></div>
+        <div class="footer-col"><h5>Help</h5><div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a href="contact.html" class="footer-link">Contact</a><a href="contact.html#faq-section" class="footer-link">FAQ</a></div></div>
+        <div class="footer-col"><h5>Quick Links</h5><div class="footer-links"><a href="blog.html" class="footer-link">Blog</a><a href="collections.html" class="footer-link">Collections</a><a href="login.html" class="footer-link">Login</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 ColorSpark. All rights reserved.</span><span>Made with ❤️ for creative minds</span></div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header"><div class="cart-title">🛒 Your Cart</div><button class="cart-close">✕</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span class="cart-total-label">Total</span><span class="cart-total-price" id="cart-total-price">$0.00</span></div>
+      <a href="shop.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:.75rem;">💳 Checkout</a>
+      <a href="shop.html" class="btn btn-outline" style="width:100%;justify-content:center;">Continue Shopping</a>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <button class="scroll-top">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

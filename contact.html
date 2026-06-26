@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact ColorSpark | Get in Touch</title>
+  <meta name="description" content="Contact ColorSpark for general inquiries, bulk order requests, custom packages, or media partnerships. We respond within 24 business hours." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <style>
+    .page-scroll-progress { position:fixed;top:0;left:0;height:3px;background:var(--grad-rainbow);z-index:2000;width:0; }
+    /* Contact info cards */
+    .contact-info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; text-align: center; transition: all var(--transition); box-shadow: var(--shadow-card); }
+    .contact-info-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .contact-info-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.25rem; }
+    .contact-info-label { font-family: var(--font-heading); font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: .5rem; }
+    .contact-info-value { font-family: var(--font-heading); font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+    /* Map placeholder */
+    .map-placeholder { background: linear-gradient(135deg, #E3F2FD, #F3E5F5); border-radius: var(--radius-xl); min-height: 280px; display: flex; align-items: center; justify-content: center; font-size: 5rem; border: 2px dashed var(--border); }
+    /* Social links */
+    .social-link { display: flex; align-items: center; gap: 1rem; padding: .85rem 1.25rem; border: 1.5px solid var(--border); border-radius: var(--radius-md); transition: all var(--transition); font-family: var(--font-heading); font-weight: 700; }
+    .social-link:hover { border-color: var(--sky-blue); transform: translateX(4px); color: var(--sky-blue); }
+    .social-link-icon { font-size: 1.4rem; }
+    /* FAQ preview */
+    .faq-preview-link { display: block; padding: .75rem 1rem; border-bottom: 1px solid var(--border); font-size: .9rem; color: var(--text-secondary); transition: all var(--transition); }
+    .faq-preview-link:hover { color: var(--sky-blue); background: var(--bg-soft); padding-left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="page-scroll-progress"></div>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><div class="nav-logo-icon">🎨</div><span>ColorSpark</span></a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="free-downloads.html" class="nav-link">Free Downloads</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="control-btn theme-toggle-btn">🌙</button>
+        <button class="control-btn rtl-toggle-btn">↔️</button>
+        <button class="nav-icon-btn open-cart-btn">🛒<span class="cart-count">0</span></button>
+        <a href="login.html" class="btn btn-primary btn-sm">Signup</a>
+      </div>
+      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="home2.html" class="nav-link">🏡 Home 2</a>
+    <a href="about.html" class="nav-link">💡 About</a>
+    <a href="blog.html" class="nav-link">📝 Blog</a>
+    <a href="collections.html" class="nav-link">📚 Collections</a>
+    <a href="shop.html" class="nav-link">🛍️ Shop</a>
+    <a href="free-downloads.html" class="nav-link">⬇️ Free Downloads</a>
+    <a href="contact.html" class="nav-link">📬 Contact</a>
+    <a href="login.html" class="nav-link">🔑 Login</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="floating-shapes" data-shape-count="6" style="opacity:.2;"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="breadcrumb" style="justify-content:center;"><a href="index.html">Home</a> <span>›</span> <span>Contact</span></div>
+      <span class="section-label label-blue">Get in Touch</span>
+      <h1 class="reveal">We'd Love to Hear From You!</h1>
+      <p class="reveal reveal-delay-1">Whether you have a question, a custom order request, or just want to share your child's artwork — our friendly team is here and ready to help.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO CARDS -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+      <div class="grid-4">
+        <div class="contact-info-card reveal reveal-delay-1">
+          <div class="contact-info-icon" style="background:var(--sky-blue-light);">📧</div>
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value">hello@colorspark.com</div>
+          <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;">Response within 24hrs</p>
+        </div>
+        <div class="contact-info-card reveal reveal-delay-2">
+          <div class="contact-info-icon" style="background:var(--yellow-light);">📞</div>
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value">+1 (800) COLOR-SP</div>
+          <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;">Mon–Fri 9am–5pm EST</p>
+        </div>
+        <div class="contact-info-card reveal reveal-delay-3">
+          <div class="contact-info-icon" style="background:var(--coral-light);">🏫</div>
+          <div class="contact-info-label">School Orders</div>
+          <div class="contact-info-value">schools@colorspark.com</div>
+          <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;">Bulk pricing & quotes</p>
+        </div>
+        <div class="contact-info-card reveal reveal-delay-4">
+          <div class="contact-info-icon" style="background:var(--purple-light);">📍</div>
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-value">Brooklyn, New York</div>
+          <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;">United States</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORMS + SIDEBAR -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:4rem;align-items:start;">
+        <!-- Left: Contact forms -->
+        <div>
+          <!-- Tab selector -->
+          <div class="tab-group" id="contactTabs">
+            <div class="tab-nav reveal" style="margin-bottom:2rem;">
+              <button class="tab-btn active" data-tab="general">💬 General Inquiry</button>
+              <button class="tab-btn" data-tab="bulk">🏫 Bulk Order Inquiry</button>
+            </div>
+
+            <!-- General form -->
+            <div class="tab-panel active" data-panel="general">
+              <div class="reveal">
+                <h3 style="margin-bottom:1.5rem;">Send Us a Message</h3>
+                <form class="contact-form-el">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">First Name *</label>
+                      <input type="text" class="form-input" placeholder="Jane" required />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Last Name *</label>
+                      <input type="text" class="form-input" placeholder="Smith" required />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" class="form-input" placeholder="jane@example.com" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Subject *</label>
+                    <select class="form-select" required>
+                      <option value="">Select a subject...</option>
+                      <option>Product Question</option>
+                      <option>Order / Shipping Issue</option>
+                      <option>Digital Download Help</option>
+                      <option>Partnership / Collaboration</option>
+                      <option>Media / Press Inquiry</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Message *</label>
+                    <textarea class="form-textarea" placeholder="Tell us how we can help..." required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label style="display:flex;align-items:center;gap:.5rem;font-size:.88rem;cursor:pointer;">
+                      <input type="checkbox" style="accent-color:var(--sky-blue);width:16px;height:16px;" />
+                      I'd like to receive creative tips and new release notifications
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg confetti-btn" style="width:100%;justify-content:center;">📬 Send Message</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Bulk order form -->
+            <div class="tab-panel" data-panel="bulk">
+              <div class="reveal">
+                <h3 style="margin-bottom:.5rem;">Bulk Order Inquiry</h3>
+                <p style="margin-bottom:1.5rem;">For schools, libraries, and large family orders. We respond within 48 hours with a custom quote.</p>
+                <form class="quote-form-el">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Your Name *</label>
+                      <input type="text" class="form-input" placeholder="Jane Smith" required />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Organization</label>
+                      <input type="text" class="form-input" placeholder="School / Company name" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Email *</label>
+                      <input type="email" class="form-input" placeholder="jane@school.edu" required />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Phone</label>
+                      <input type="tel" class="form-input" placeholder="+1 (555) 000-0000" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">Quantity Needed *</label>
+                      <select class="form-select" required>
+                        <option value="">Select...</option>
+                        <option>10–24 books</option>
+                        <option>25–99 books</option>
+                        <option>100–499 books</option>
+                        <option>500+ books</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Format Preference</label>
+                      <select class="form-select">
+                        <option>Digital PDF</option>
+                        <option>Physical Books</option>
+                        <option>Mix of Both</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Additional Details</label>
+                    <textarea class="form-textarea" placeholder="Themes, age groups, special requirements..."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-secondary btn-lg confetti-btn" style="width:100%;justify-content:center;">📋 Submit Bulk Inquiry</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Info sidebar -->
+        <div>
+          <!-- Map -->
+          <div class="reveal-right" style="margin-bottom:2rem;">
+            <div class="map-placeholder">🗺️</div>
+            <p style="text-align:center;font-size:.85rem;color:var(--text-muted);margin-top:.75rem;">ColorSpark HQ · Brooklyn, New York, USA</p>
+          </div>
+
+          <!-- Social links -->
+          <div class="reveal-right reveal-delay-1" style="margin-bottom:2rem;">
+            <h4 style="font-family:var(--font-heading);margin-bottom:1.25rem;">Follow Us on Social Media</h4>
+            <div style="display:flex;flex-direction:column;gap:.6rem;">
+              <a href="#" class="social-link"><span class="social-link-icon">📘</span> Facebook — @ColorSparkBooks</a>
+              <a href="#" class="social-link"><span class="social-link-icon">📸</span> Instagram — @colorspark.art</a>
+              <a href="#" class="social-link"><span class="social-link-icon">📌</span> Pinterest — ColorSpark</a>
+              <a href="#" class="social-link"><span class="social-link-icon">▶️</span> YouTube — ColorSpark Official</a>
+            </div>
+          </div>
+
+          <!-- FAQ Preview -->
+          <div class="reveal-right reveal-delay-2">
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;">
+              <div style="background:var(--grad-blue);padding:1.25rem 1.5rem;">
+                <h4 style="color:#fff;font-family:var(--font-heading);">❓ Quick Help &amp; FAQs</h4>
+              </div>
+              <div style="padding:1.5rem;text-align:center;">
+                <p style="font-size:.9rem;color:var(--text-secondary);margin-bottom:1.25rem;">Before reaching out, check out our quick help section containing detailed answers to common inquiries.</p>
+                <a href="#faq-section" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;">📖 Browse FAQs Below</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ SECTION ───────────────────────────────── -->
+  <section class="section section-alt" id="faq-section">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: 3rem;">
+        <span class="section-label label-blue">Help Center</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Quick answers to common questions about digital downloads, printing, shipping, and school orders.</p>
+      </div>
+      
+      <!-- Accordion Grid -->
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="accordion-group">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-question">How do I download my digital purchase?</div>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body"><div class="accordion-body-inner">After completing your purchase, you'll receive an email with a download link within 5 minutes. You can also access all your purchases in your account under "My Downloads."</div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-question">What paper size should I use for printing?</div>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body"><div class="accordion-body-inner">Our PDFs are formatted for both US Letter (8.5"x11") and A4 pages. Make sure to set your printer settings to "Fit to Page" for the best results. We recommend heavy weight paper or cardstock for coloring.</div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-question">How long does physical book shipping take?</div>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body"><div class="accordion-body-inner">Standard US shipping takes 5–7 business days, and expedited shipping takes 2–3 days. International shipping can take 10–21 business days depending on customs.</div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-question">Do you offer school or bulk order discounts?</div>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body"><div class="accordion-body-inner">Yes! We offer bulk discounts starting at 20% off for 10+ books, 35% off for 25+ books, and up to 50% off for 100+ books. We also process official Purchase Orders.</div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-question">What is your returns and refund policy?</div>
+              <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body"><div class="accordion-body-inner">Physical books can be returned within 30 days of delivery if unused for a full refund. Digital purchases are non-refundable once downloaded, but you can preview sample pages for free beforehand.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-logo"><div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🎨</div><span>ColorSpark</span></div><p class="footer-desc">Premium coloring books for creative minds.</p><div class="footer-social">
+            <a href="#" class="social-btn" title="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="Pinterest">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.993 3.993-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.342-.091.381-.294 1.199-.334 1.363-.053.218-.176.265-.406.156-1.52-.707-2.47-2.932-2.47-4.717 0-3.839 2.79-7.365 8.044-7.365 4.223 0 7.503 3.01 7.503 7.029 0 4.194-2.643 7.571-6.312 7.571-1.233 0-2.393-.641-2.79-1.394 0 0-.61 2.324-.758 2.897-.275 1.056-1.014 2.381-1.51 3.192 1.125.328 2.311.507 3.537.507 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="#" class="social-btn" title="YouTube">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div></div>
+        <div class="footer-col"><h5>Shop</h5><div class="footer-links"><a href="shop.html" class="footer-link">All Books</a><a href="free-downloads.html" class="footer-link">Free Downloads</a></div></div>
+        <div class="footer-col"><h5>Help</h5><div class="footer-links"><a href="contact.html#faq-section" class="footer-link">FAQ</a><a href="contact.html" class="footer-link">Contact</a><a href="about.html" class="footer-link">About</a></div></div>
+        <div class="footer-col"><h5>More</h5><div class="footer-links"><a href="blog.html" class="footer-link">Blog</a><a href="collections.html" class="footer-link">Collections</a><a href="login.html" class="footer-link">Login</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 ColorSpark.</span></div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header"><div class="cart-title">🛒 Your Cart</div><button class="cart-close">✕</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer"><div class="cart-total"><span class="cart-total-label">Total</span><span class="cart-total-price" id="cart-total-price">$0.00</span></div><a href="shop.html" class="btn btn-primary" style="width:100%;justify-content:center;">💳 Checkout</a></div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <button class="scroll-top">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
