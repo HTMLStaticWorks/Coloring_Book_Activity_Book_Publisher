@@ -28,20 +28,41 @@
     .hero-feature::before { content: '✓'; color: var(--green); font-weight: 800; }
 
     /* Book illustration */
-    .book-hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
-    .book-showcase { position: relative; }
+    .book-hero-visual { display: flex; justify-content: center; align-items: center; position: relative; overflow: visible; }
+    .book-showcase { position: relative; overflow: visible; }
     .book-main { width: 280px; height: 360px; border-radius: 16px; background: linear-gradient(145deg, #29B6F6, #9B59B6); display: flex; align-items: center; justify-content: center; font-size: 7rem; box-shadow: 0 30px 80px rgba(41,182,246,.4), -12px 0 30px rgba(0,0,0,.15); animation: floatBook 4s ease-in-out infinite; position: relative; z-index: 2; }
     .book-secondary { position: absolute; width: 200px; height: 260px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 5rem; box-shadow: 0 20px 50px rgba(0,0,0,.2); animation: floatBook 5s ease-in-out infinite; }
     .book-2 { background: linear-gradient(145deg, #FF6B47, #FFD600); top: -40px; right: -60px; animation-delay: 1s; z-index: 1; }
     .book-3 { background: linear-gradient(145deg, #4CAF50, #29B6F6); bottom: -30px; left: -50px; animation-delay: 2s; z-index: 1; }
-    .hero-badge { position: absolute; background: #fff; border-radius: 12px; padding: .6rem 1rem; box-shadow: 0 8px 24px rgba(0,0,0,.12); font-family: var(--font-heading); font-weight: 800; font-size: .82rem; display: flex; align-items: center; gap: .4rem; }
+    .hero-badge { position: absolute; background: #fff; border-radius: 12px; padding: .6rem 1rem; box-shadow: 0 8px 24px rgba(0,0,0,.12); font-family: var(--font-heading); font-weight: 800; font-size: .82rem; display: flex; align-items: center; gap: .4rem; white-space: nowrap; }
     [data-theme="dark"] .hero-badge { background: var(--bg-card); border: 1px solid var(--border); }
     .badge-1 { top: 20px; left: -30px; }
     .badge-2 { bottom: 40px; right: -20px; }
 
+    /* Mobile: scale down the book animation so it fits */
+    @media (max-width: 900px) {
+      .book-hero-visual { padding: 3rem 2rem 2rem; width: 100%; }
+      .book-showcase { transform: scale(0.75); transform-origin: center center; }
+      .hero-inner { gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .book-showcase { transform: scale(0.6); transform-origin: center center; }
+      .book-hero-visual { padding: 2rem 1rem 0; min-height: 280px; }
+    }
+
     /* Category scroll */
-    .cat-scroll-row { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: .75rem; scrollbar-width: none; }
+    .cat-scroll-wrapper { position: relative; }
+    .cat-scroll-row { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: .75rem; scrollbar-width: none; scroll-behavior: smooth; }
     .cat-scroll-row::-webkit-scrollbar { display: none; }
+    .cat-scroll-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all var(--transition); box-shadow: var(--shadow-md); }
+    .cat-scroll-btn:hover { background: var(--sky-blue); color: white; border-color: var(--sky-blue); transform: translateY(-50%) scale(1.1); }
+    .cat-scroll-btn.prev-btn { left: -22px; }
+    .cat-scroll-btn.next-btn { right: -22px; }
+    @media (max-width: 768px) {
+      .cat-scroll-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+      .cat-scroll-btn.prev-btn { left: -10px; }
+      .cat-scroll-btn.next-btn { right: -10px; }
+    }
     .cat-mini { flex-shrink: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1rem; text-align: center; width: 130px; transition: all var(--transition); cursor: pointer; box-shadow: var(--shadow-card); }
     .cat-mini:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--sky-blue); }
     .cat-mini-icon { font-size: 2.4rem; display: block; margin-bottom: .5rem; transition: transform .35s var(--ease-bounce); }
@@ -49,12 +70,37 @@
     .cat-mini-name { font-family: var(--font-heading); font-weight: 800; font-size: .82rem; color: var(--text-primary); }
 
     /* Benefits */
-    .benefit-icon { width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1rem; flex-shrink: 0; }
+    .benefit-icon { width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1rem; flex-shrink: 0; overflow: hidden; }
+    .benefit-icon img { width: 100%; height: 100%; object-fit: cover; }
     .benefit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-card); transition: all var(--transition); }
     .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 
     /* Age tabs */
     .age-product-img { aspect-ratio: 3/4; background: var(--bg-soft); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; margin-bottom: 1rem; }
+
+    /* Book Cover Mockup */
+    .book-cover-mockup { width: 100%; height: 100%; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 1.5rem 1rem; color: #fff; font-family: var(--font-heading); border-radius: var(--radius-md) 0 0 var(--radius-md); box-shadow: inset 8px 0 10px rgba(0,0,0,0.2), 4px 4px 15px rgba(0,0,0,0.15); overflow: hidden; transition: all var(--transition); }
+    .book-cover-spine { position: absolute; left: 0; top: 0; bottom: 0; width: 12px; background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.15) 50%, rgba(0,0,0,0.25) 100%); border-right: 1px solid rgba(0,0,0,0.15); }
+    .book-cover-title { font-weight: 900; font-size: 0.95rem; text-align: center; line-height: 1.25; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); z-index: 2; margin-left: 8px; }
+    .book-cover-graphic { font-size: 3.5rem; z-index: 2; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); transition: transform var(--transition); }
+    .product-card:hover .book-cover-graphic { transform: scale(1.15) rotate(-6deg); }
+    .book-cover-footer { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.95; z-index: 2; background: rgba(255,255,255,0.25); padding: 2px 10px; border-radius: 99px; backdrop-filter: blur(4px); }
+
+    /* Coloring Page Mockup */
+    .coloring-page-mockup { width: 85%; height: 90%; background: #fff; border: 1px solid #ddd; box-shadow: 2px 4px 12px rgba(0,0,0,0.12); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem; position: relative; overflow: hidden; color: #333; transition: all var(--transition); }
+    .coloring-cut-line { position: absolute; left: 6px; top: 0; bottom: 0; width: 1px; border-left: 1px dashed #ccc; }
+    .coloring-header { font-size: 0.65rem; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
+    .coloring-graphic-wrap { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+    .coloring-emoji { font-size: 4.5rem; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1)); }
+    .coloring-footer { font-size: 0.55rem; color: #bbb; text-align: center; font-weight: 600; }
+    .gallery-item:hover .coloring-page-mockup { transform: scale(1.03) rotate(-1deg); }
+
+    /* Testimonial slider */
+    .testimonial-slider { position: relative; }
+    /* Desktop: 3 columns. Breakpoints ordered large→small so smaller wins */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; align-items: stretch; }
+    @media (max-width: 1100px) { .testimonial-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 700px)  { .testimonial-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; } }
 
     /* Stats bar */
     .stats-bar { background: linear-gradient(135deg, var(--sky-blue) 0%, var(--purple) 100%); border-radius: var(--radius-xl); padding: 3rem; }
@@ -66,12 +112,6 @@
     .newsletter-section { background: linear-gradient(135deg, var(--coral) 0%, var(--purple) 100%); border-radius: var(--radius-xl); padding: 4rem 3rem; text-align: center; position: relative; overflow: hidden; }
     .newsletter-section h2 { color: #fff; }
     .newsletter-section p { color: rgba(255,255,255,.85); margin-bottom: 2rem; }
-
-    /* Testimonial slider */
-    .testimonial-slider { position: relative; }
-    .testimonial-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-    @media (max-width: 900px) { .testimonial-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 1100px) { .testimonial-grid { grid-template-columns: repeat(2,1fr); } }
 
     /* School CTA */
     .school-cta { background: linear-gradient(135deg, #1A237E 0%, #283593 100%); border-radius: var(--radius-xl); padding: 4rem 3rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
@@ -130,10 +170,18 @@
     <a href="free-downloads.html" class="nav-link">⬇️ Free Downloads</a>
     <a href="contact.html" class="nav-link">📬 Contact</a>
     <a href="login.html" class="nav-link">🔑 Login</a>
+    <div class="mobile-nav-utils">
+      <button class="control-btn theme-toggle-btn" title="Toggle Dark Mode">🌙</button>
+      <button class="control-btn rtl-toggle-btn" title="Toggle RTL">↔️</button>
+      <button class="nav-icon-btn open-cart-btn" title="Shopping Cart">
+        🛒<span class="cart-count" id="cartCountMobile">0</span>
+      </button>
+      <a href="login.html" class="btn btn-primary btn-sm" style="flex:1;text-align:center;">Signup</a>
+    </div>
   </div>
 
   <!-- ── HERO ──────────────────────────────────────── -->
-  <section class="hero-home" style="position:relative;overflow:hidden;">
+  <section class="hero-home" style="position:relative; overflow-x:hidden; overflow-y:visible;">
     <div class="hero-bg"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
@@ -193,19 +241,23 @@
         <h2 class="section-title">Popular Coloring Categories</h2>
         <p class="section-subtitle">From cuddly animals to outer-space adventures — find the perfect theme for every young artist and curious mind.</p>
       </div>
-      <div class="cat-scroll-row reveal">
-        <div class="cat-mini cat-blue"><span class="cat-mini-icon">🐾</span><span class="cat-mini-name">Animals</span></div>
-        <div class="cat-mini cat-coral"><span class="cat-mini-icon">🦕</span><span class="cat-mini-name">Dinosaurs</span></div>
-        <div class="cat-mini cat-purple"><span class="cat-mini-icon">🚀</span><span class="cat-mini-name">Space</span></div>
-        <div class="cat-mini cat-yellow"><span class="cat-mini-icon">🔤</span><span class="cat-mini-name">Alphabet</span></div>
-        <div class="cat-mini cat-green"><span class="cat-mini-icon">🔢</span><span class="cat-mini-name">Numbers</span></div>
-        <div class="cat-mini cat-blue"><span class="cat-mini-icon">🌿</span><span class="cat-mini-name">Nature</span></div>
-        <div class="cat-mini cat-purple"><span class="cat-mini-icon">🌸</span><span class="cat-mini-name">Mandala</span></div>
-        <div class="cat-mini cat-coral"><span class="cat-mini-icon">🎄</span><span class="cat-mini-name">Holiday</span></div>
-        <div class="cat-mini cat-yellow"><span class="cat-mini-icon">🎓</span><span class="cat-mini-name">Educational</span></div>
-        <div class="cat-mini cat-green"><span class="cat-mini-icon">🦄</span><span class="cat-mini-name">Fantasy</span></div>
-        <div class="cat-mini cat-blue"><span class="cat-mini-icon">🌊</span><span class="cat-mini-name">Ocean</span></div>
-        <div class="cat-mini cat-coral"><span class="cat-mini-icon">🏙️</span><span class="cat-mini-name">City Life</span></div>
+      <div class="cat-scroll-wrapper reveal">
+        <button class="cat-scroll-btn prev-btn" aria-label="Previous Categories">‹</button>
+        <div class="cat-scroll-row">
+          <div class="cat-mini cat-blue"><span class="cat-mini-icon">🐾</span><span class="cat-mini-name">Animals</span></div>
+          <div class="cat-mini cat-coral"><span class="cat-mini-icon">🦕</span><span class="cat-mini-name">Dinosaurs</span></div>
+          <div class="cat-mini cat-purple"><span class="cat-mini-icon">🚀</span><span class="cat-mini-name">Space</span></div>
+          <div class="cat-mini cat-yellow"><span class="cat-mini-icon">🔤</span><span class="cat-mini-name">Alphabet</span></div>
+          <div class="cat-mini cat-green"><span class="cat-mini-icon">🔢</span><span class="cat-mini-name">Numbers</span></div>
+          <div class="cat-mini cat-blue"><span class="cat-mini-icon">🌿</span><span class="cat-mini-name">Nature</span></div>
+          <div class="cat-mini cat-purple"><span class="cat-mini-icon">🌸</span><span class="cat-mini-name">Mandala</span></div>
+          <div class="cat-mini cat-coral"><span class="cat-mini-icon">🎄</span><span class="cat-mini-name">Holiday</span></div>
+          <div class="cat-mini cat-yellow"><span class="cat-mini-icon">🎓</span><span class="cat-mini-name">Educational</span></div>
+          <div class="cat-mini cat-green"><span class="cat-mini-icon">🦄</span><span class="cat-mini-name">Fantasy</span></div>
+          <div class="cat-mini cat-blue"><span class="cat-mini-icon">🌊</span><span class="cat-mini-name">Ocean</span></div>
+          <div class="cat-mini cat-coral"><span class="cat-mini-icon">🏙️</span><span class="cat-mini-name">City Life</span></div>
+        </div>
+        <button class="cat-scroll-btn next-btn" aria-label="Next Categories">›</button>
       </div>
     </div>
   </section>
@@ -222,90 +274,89 @@
       </div>
       <div class="new-releases-grid">
         <!-- Book 1 -->
-        <div class="product-card flip-card" style="height:360px;"
-          data-id="book-001" data-name="Dino World Adventure" data-price="8.99"
-          data-emoji="🦕" data-type="Digital PDF" data-pages="48" data-age="4–8"
-          data-desc="Take a journey through prehistoric lands with 48 pages of Dino coloring fun!" data-reviews="342">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <span class="product-badge badge-new">NEW</span>
-              <span class="product-badge badge-digital" style="top:42px;">DIGITAL</span>
-              <div class="product-img-wrap" style="height:100%;">
-                <div style="height:100%;background:linear-gradient(145deg,#E3F2FD,#FFF8E1);display:flex;align-items:center;justify-content:center;font-size:5rem;">🦕</div>
-              </div>
+        <div class="product-card theme-blue" data-id="book-001" data-name="Dino World Adventure" data-price="8.99" data-emoji="🦕" data-type="Digital PDF" data-pages="48" data-age="4–8" data-desc="Take a journey through prehistoric lands with 48 pages of Dino coloring fun!" data-reviews="342">
+          <div class="product-img-wrap">
+            <div class="book-cover-mockup" style="background-image: url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&w=400&h=500&q=80'); background-size: cover; background-position: center;">
+              <div class="book-cover-spine"></div>
             </div>
-            <div class="flip-back" style="background:linear-gradient(145deg,#29B6F6,#0288D1);">
-              <h4>Dino World Adventure</h4>
-              <p>48 pages · Ages 4–8 · Digital PDF</p>
-              <div style="margin:1rem 0;">⭐⭐⭐⭐⭐ <small style="opacity:.8">(342 reviews)</small></div>
-              <div style="font-size:1.5rem;font-weight:900;margin-bottom:1rem;">$8.99</div>
-              <button class="product-add-btn" data-id="book-001" data-name="Dino World Adventure" data-price="8.99" data-emoji="🦕" data-type="Digital PDF">🛒 Add to Cart</button>
+          </div>
+          <span class="product-badge badge-new">NEW</span>
+          <div class="product-actions"><button class="product-action-btn wishlist-btn" data-id="book-001">🤍</button></div>
+          <div class="product-info">
+            <span style="background:var(--sky-blue-light);color:var(--sky-blue-dark);padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800;">DIGITAL PDF</span>
+            <h4 style="margin-top:.5rem;">Dino World Adventure</h4>
+            <div class="author">Ages 4–8</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(342)</span></div>
+            <div class="product-price"><span class="price-current">$8.99</span></div>
+            <div class="product-card-footer">
+              <button class="product-add-btn-split" data-id="book-001" data-name="Dino World Adventure" data-price="8.99" data-emoji="🦕" data-type="Digital PDF">🛒 Add to Cart</button>
+              <button class="product-quick-view-btn quick-preview-btn" title="Quick Preview">👁️</button>
             </div>
           </div>
         </div>
+
         <!-- Book 2 -->
-        <div class="product-card flip-card" style="height:360px;"
-          data-id="book-002" data-name="Space Explorer Activity Book" data-price="12.99"
-          data-emoji="🚀" data-type="Physical Book" data-pages="64" data-age="6–12"
-          data-desc="Blast off into space adventures with 64 pages of out-of-this-world activities!" data-reviews="218">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <span class="product-badge badge-new">NEW</span>
-              <span class="product-badge badge-physical" style="top:42px;">PHYSICAL</span>
-              <div class="product-img-wrap" style="height:100%;">
-                <div style="height:100%;background:linear-gradient(145deg,#1A1A2E,#16213E);display:flex;align-items:center;justify-content:center;font-size:5rem;">🚀</div>
-              </div>
+        <div class="product-card theme-coral" data-id="book-002" data-name="Space Explorer Activity Book" data-price="12.99" data-emoji="🚀" data-type="Physical Book" data-pages="64" data-age="6–12" data-desc="Blast off into space adventures with 64 pages of out-of-this-world activities!" data-reviews="218">
+          <div class="product-img-wrap">
+            <div class="book-cover-mockup" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=400&h=500&q=80'); background-size: cover; background-position: center;">
+              <div class="book-cover-spine"></div>
             </div>
-            <div class="flip-back" style="background:linear-gradient(145deg,#9B59B6,#6C3483);">
-              <h4>Space Explorer Activity Book</h4>
-              <p>64 pages · Ages 6–12 · Physical Book</p>
-              <div style="margin:1rem 0;">⭐⭐⭐⭐⭐ <small style="opacity:.8">(218 reviews)</small></div>
-              <div style="font-size:1.5rem;font-weight:900;margin-bottom:1rem;">$12.99</div>
-              <button class="product-add-btn" data-id="book-002" data-name="Space Explorer Activity Book" data-price="12.99" data-emoji="🚀" data-type="Physical Book">🛒 Add to Cart</button>
+          </div>
+          <span class="product-badge badge-new">NEW</span>
+          <div class="product-actions"><button class="product-action-btn wishlist-btn" data-id="book-002">🤍</button></div>
+          <div class="product-info">
+            <span style="background:var(--coral-light);color:var(--coral-dark);padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800;">PHYSICAL BOOK</span>
+            <h4 style="margin-top:.5rem;">Space Explorer Activity</h4>
+            <div class="author">Ages 6–12</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(218)</span></div>
+            <div class="product-price"><span class="price-current">$12.99</span></div>
+            <div class="product-card-footer">
+              <button class="product-add-btn-split" data-id="book-002" data-name="Space Explorer Activity Book" data-price="12.99" data-emoji="🚀" data-type="Physical Book">🛒 Add to Cart</button>
+              <button class="product-quick-view-btn quick-preview-btn" title="Quick Preview">👁️</button>
             </div>
           </div>
         </div>
+
         <!-- Book 3 -->
-        <div class="product-card flip-card" style="height:360px;"
-          data-id="book-003" data-name="Mandala Calm Coloring" data-price="9.99"
-          data-emoji="🌸" data-type="Digital PDF" data-pages="60" data-age="12+"
-          data-desc="60 intricate mandala designs for mindful coloring and stress relief." data-reviews="506">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <span class="product-badge badge-best">BEST SELLER</span>
-              <span class="product-badge badge-digital" style="top:42px;">DIGITAL</span>
-              <div class="product-img-wrap" style="height:100%;">
-                <div style="height:100%;background:linear-gradient(145deg,#F3E5F5,#EDE7F6);display:flex;align-items:center;justify-content:center;font-size:5rem;">🌸</div>
-              </div>
+        <div class="product-card theme-purple" data-id="book-003" data-name="Mandala Calm Coloring" data-price="9.99" data-emoji="🌸" data-type="Digital PDF" data-pages="60" data-age="12+" data-desc="60 intricate mandala designs for mindful coloring and stress relief." data-reviews="506">
+          <div class="product-img-wrap">
+            <div class="book-cover-mockup" style="background-image: url('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=400&h=500&q=80'); background-size: cover; background-position: center;">
+              <div class="book-cover-spine"></div>
             </div>
-            <div class="flip-back" style="background:linear-gradient(145deg,#FF6B47,#E53935);">
-              <h4>Mandala Calm Coloring</h4>
-              <p>60 pages · Ages 12+ · Digital PDF</p>
-              <div style="margin:1rem 0;">⭐⭐⭐⭐⭐ <small style="opacity:.8">(506 reviews)</small></div>
-              <div style="font-size:1.5rem;font-weight:900;margin-bottom:1rem;">$9.99</div>
-              <button class="product-add-btn" data-id="book-003" data-name="Mandala Calm Coloring" data-price="9.99" data-emoji="🌸" data-type="Digital PDF">🛒 Add to Cart</button>
+          </div>
+          <span class="product-badge badge-best">BEST SELLER</span>
+          <div class="product-actions"><button class="product-action-btn wishlist-btn" data-id="book-003">🤍</button></div>
+          <div class="product-info">
+            <span style="background:var(--purple-light);color:var(--purple-dark);padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800;">DIGITAL PDF</span>
+            <h4 style="margin-top:.5rem;">Mandala Calm Coloring</h4>
+            <div class="author">Ages 12+</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(506)</span></div>
+            <div class="product-price"><span class="price-current">$9.99</span></div>
+            <div class="product-card-footer">
+              <button class="product-add-btn-split" data-id="book-003" data-name="Mandala Calm Coloring" data-price="9.99" data-emoji="🌸" data-type="Digital PDF">🛒 Add to Cart</button>
+              <button class="product-quick-view-btn quick-preview-btn" title="Quick Preview">👁️</button>
             </div>
           </div>
         </div>
+
         <!-- Book 4 -->
-        <div class="product-card flip-card" style="height:360px;"
-          data-id="book-004" data-name="Learn ABCs Activity Book" data-price="7.99"
-          data-emoji="🔤" data-type="Digital PDF" data-pages="52" data-age="3–6"
-          data-desc="Fun alphabet activities, tracing, coloring, and more for early learners." data-reviews="421">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <span class="product-badge badge-sale">SALE</span>
-              <span class="product-badge badge-digital" style="top:42px;">DIGITAL</span>
-              <div class="product-img-wrap" style="height:100%;">
-                <div style="height:100%;background:linear-gradient(145deg,#FFF8E1,#FFFDE7);display:flex;align-items:center;justify-content:center;font-size:5rem;">🔤</div>
-              </div>
+        <div class="product-card theme-blue" data-id="book-004" data-name="Learn ABCs Activity Book" data-price="7.99" data-emoji="🔤" data-type="Digital PDF" data-pages="52" data-age="3–6" data-desc="Fun alphabet activities, tracing, coloring, and more for early learners." data-reviews="421">
+          <div class="product-img-wrap">
+            <div class="book-cover-mockup" style="background-image: url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&h=500&q=80'); background-size: cover; background-position: center;">
+              <div class="book-cover-spine"></div>
             </div>
-            <div class="flip-back" style="background:linear-gradient(145deg,#FFD600,#F9A825);">
-              <h4>Learn ABCs Activity Book</h4>
-              <p>52 pages · Ages 3–6 · Digital PDF</p>
-              <div style="margin:1rem 0;color:var(--text-primary);">⭐⭐⭐⭐⭐ <small style="opacity:.8">(421 reviews)</small></div>
-              <div style="font-size:1.5rem;font-weight:900;margin-bottom:1rem;color:var(--text-primary);">$7.99 <s style="font-size:1rem;opacity:.6">$12.99</s></div>
-              <button class="product-add-btn" style="color:#fff;background:var(--coral);" data-id="book-004" data-name="Learn ABCs Activity Book" data-price="7.99" data-emoji="🔤" data-type="Digital PDF">🛒 Add to Cart</button>
+          </div>
+          <span class="product-badge badge-sale">SALE</span>
+          <div class="product-actions"><button class="product-action-btn wishlist-btn" data-id="book-004">🤍</button></div>
+          <div class="product-info">
+            <span style="background:var(--sky-blue-light);color:var(--sky-blue-dark);padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800;">DIGITAL PDF</span>
+            <h4 style="margin-top:.5rem;">Learn ABCs Activity Book</h4>
+            <div class="author">Ages 3–6</div>
+            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(421)</span></div>
+            <div class="product-price"><span class="price-current">$7.99</span></div>
+            <div class="product-card-footer">
+              <button class="product-add-btn-split" data-id="book-004" data-name="Learn ABCs Activity Book" data-price="7.99" data-emoji="🔤" data-type="Digital PDF">🛒 Add to Cart</button>
+              <button class="product-quick-view-btn quick-preview-btn" title="Quick Preview">👁️</button>
             </div>
           </div>
         </div>
@@ -391,32 +442,32 @@
       </div>
       <div class="grid-3" style="margin-bottom:3rem;">
         <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-icon" style="background:var(--sky-blue-light);">🧠</div>
+          <div class="benefit-icon" style="background:var(--sky-blue-light);"><img src="images/motor_skills.png" alt="Develops Fine Motor Skills"></div>
           <h4>Develops Fine Motor Skills</h4>
           <p style="font-size:.9rem;margin-top:.5rem;">Precise coloring activities build hand-eye coordination and pencil control in young learners.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-icon" style="background:var(--yellow-light);">🎨</div>
+          <div class="benefit-icon" style="background:var(--yellow-light);"><img src="images/creative_thinking.png" alt="Sparks Creative Thinking"></div>
           <h4>Sparks Creative Thinking</h4>
           <p style="font-size:.9rem;margin-top:.5rem;">Open-ended art activities nurture imagination and encourage self-expression from an early age.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-icon" style="background:var(--coral-light);">🧘</div>
+          <div class="benefit-icon" style="background:var(--coral-light);"><img src="images/focus_calm.png" alt="Improves Focus & Calm"></div>
           <h4>Improves Focus &amp; Calm</h4>
           <p style="font-size:.9rem;margin-top:.5rem;">Coloring promotes mindfulness, reduces anxiety, and improves attention span in children and adults.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-icon" style="background:var(--purple-light);">📖</div>
+          <div class="benefit-icon" style="background:var(--purple-light);"><img src="images/early_learning.png" alt="Supports Early Learning"></div>
           <h4>Supports Early Learning</h4>
           <p style="font-size:.9rem;margin-top:.5rem;">Our activity books integrate letters, numbers, shapes, and concepts to reinforce school learning.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-icon" style="background:var(--sky-blue-light);">🌍</div>
+          <div class="benefit-icon" style="background:var(--sky-blue-light);"><img src="images/cultural_awareness.png" alt="Cultural Awareness"></div>
           <h4>Cultural Awareness</h4>
           <p style="font-size:.9rem;margin-top:.5rem;">Themed collections introduce children to animals, nature, history, and cultures around the world.</p>
         </div>
         <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-icon" style="background:var(--yellow-light);">🏆</div>
+          <div class="benefit-icon" style="background:var(--yellow-light);"><img src="images/confidence.png" alt="Builds Confidence"></div>
           <h4>Builds Confidence</h4>
           <p style="font-size:.9rem;margin-top:.5rem;">Completing creative projects gives children a sense of accomplishment and pride in their work.</p>
         </div>
@@ -455,23 +506,106 @@
       </div>
       <div class="gallery-grid reveal">
         <div class="gallery-item" style="background:linear-gradient(145deg,#E3F2FD,#F3E5F5);">
-          <span class="gallery-item-emoji">🦁</span>
+          <div class="coloring-page-mockup">
+            <div class="coloring-cut-line"></div>
+            <div class="coloring-header">🎨 ColorSpark Free Sample</div>
+            <div class="coloring-graphic-wrap">
+              <svg viewBox="0 0 100 100" class="coloring-svg" style="width: 85%; height: 85%; fill: none; stroke: #2D3748; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;">
+                <!-- Cute lion face -->
+                <path d="M 50,15 C 38,15 30,23 30,35 C 30,47 38,55 50,55 C 62,55 70,47 70,35 C 70,23 62,15 50,15" />
+                <path d="M 50,5 C 33,5 20,18 20,35 C 20,52 33,65 50,65 C 67,65 80,52 80,35 C 80,18 67,5 50,5" />
+                <path d="M 50,35 L 50,5 M 39,24 L 18,13 M 31,35 L 5,35 M 39,46 L 18,57 M 50,45 L 50,65 M 61,46 L 82,57 M 69,35 L 95,35 M 61,24 L 82,13" />
+                <circle cx="43" cy="32" r="3" fill="#2D3748" />
+                <circle cx="57" cy="32" r="3" fill="#2D3748" />
+                <path d="M 47,38 L 53,38 L 50,42 Z" fill="#2D3748" />
+                <path d="M 50,42 Q 48,46 45,45 M 50,42 Q 52,46 55,45" />
+              </svg>
+            </div>
+            <div class="coloring-footer">www.colorspark.com</div>
+          </div>
           <div class="gallery-overlay"><span class="gallery-label">Animals — Lion Coloring Page</span></div>
         </div>
         <div class="gallery-item" style="background:linear-gradient(145deg,#FFF8E1,#FFF3F1);">
-          <span class="gallery-item-emoji">🦕</span>
+          <div class="coloring-page-mockup">
+            <div class="coloring-cut-line"></div>
+            <div class="coloring-header">🎨 ColorSpark Free Sample</div>
+            <div class="coloring-graphic-wrap">
+              <svg viewBox="0 0 100 100" class="coloring-svg" style="width: 85%; height: 85%; fill: none; stroke: #2D3748; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;">
+                <!-- Cute Dino outline -->
+                <path d="M 30,65 C 30,55 40,40 55,40 C 65,40 75,48 75,60 C 75,70 65,75 55,75 C 45,75 30,75 30,65" />
+                <path d="M 55,40 C 58,30 65,20 75,22 C 85,24 85,38 78,45" />
+                <circle cx="72" cy="30" r="2.5" fill="#2D3748" />
+                <path d="M 76,35 Q 73,38 70,36" />
+                <path d="M 55,40 L 51,36 L 48,41 L 43,37 L 41,43 L 36,40 L 35,46" />
+                <path d="M 30,65 Q 15,60 10,50 Q 20,55 32,60" />
+              </svg>
+            </div>
+            <div class="coloring-footer">www.colorspark.com</div>
+          </div>
           <div class="gallery-overlay"><span class="gallery-label">Dinosaur — T-Rex Coloring</span></div>
         </div>
         <div class="gallery-item" style="background:linear-gradient(145deg,#1A1A2E,#16213E);">
-          <span class="gallery-item-emoji">🚀</span>
+          <div class="coloring-page-mockup">
+            <div class="coloring-cut-line"></div>
+            <div class="coloring-header">🎨 ColorSpark Free Sample</div>
+            <div class="coloring-graphic-wrap">
+              <svg viewBox="0 0 100 100" class="coloring-svg" style="width: 85%; height: 85%; fill: none; stroke: #2D3748; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;">
+                <!-- Rocket Body -->
+                <path d="M 50,15 C 60,35 60,65 60,75 L 40,75 C 40,65 40,35 50,15" />
+                <path d="M 40,65 L 25,75 L 30,80 L 40,75" />
+                <path d="M 60,65 L 75,75 L 70,80 L 60,75" />
+                <circle cx="50" cy="45" r="6" />
+                <path d="M 45,75 L 50,90 L 55,75" />
+                <path d="M 20,25 L 22,29 L 27,29 L 23,32 L 25,37 L 20,34 L 15,37 L 17,32 L 13,29 L 18,29 Z" fill="#2D3748" />
+                <path d="M 75,30 L 76,32 L 79,32 L 77,34 L 78,37 L 75,35 L 72,37 L 73,34 L 71,32 L 74,32 Z" fill="#2D3748" />
+              </svg>
+            </div>
+            <div class="coloring-footer">www.colorspark.com</div>
+          </div>
           <div class="gallery-overlay"><span class="gallery-label">Space — Rocket Activity</span></div>
         </div>
         <div class="gallery-item" style="background:linear-gradient(145deg,#F3E5F5,#EDE7F6);">
-          <span class="gallery-item-emoji">🌸</span>
+          <div class="coloring-page-mockup">
+            <div class="coloring-cut-line"></div>
+            <div class="coloring-header">🎨 ColorSpark Free Sample</div>
+            <div class="coloring-graphic-wrap">
+              <svg viewBox="0 0 100 100" class="coloring-svg" style="width: 85%; height: 85%; fill: none; stroke: #2D3748; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;">
+                <!-- Central flower -->
+                <circle cx="50" cy="50" r="8" />
+                <!-- Petals Layer 1 -->
+                <path d="M 50,42 C 45,35 55,35 50,42" />
+                <path d="M 50,58 C 45,65 55,65 50,58" />
+                <path d="M 42,50 C 35,45 35,55 42,50" />
+                <path d="M 58,50 C 65,45 65,55 58,50" />
+                <!-- Petals Layer 2 -->
+                <path d="M 44,44 C 38,38 46,32 44,44" />
+                <path d="M 56,44 C 62,38 54,32 56,44" />
+                <path d="M 44,56 C 38,62 46,68 44,56" />
+                <path d="M 56,56 C 62,62 54,68 56,56" />
+                <circle cx="50" cy="50" r="25" stroke-dasharray="2,2" />
+                <circle cx="50" cy="50" r="35" />
+                <path d="M 50,15 L 50,5 M 50,85 L 50,95 M 15,50 L 5,50 M 85,50 L 95,50" />
+              </svg>
+            </div>
+            <div class="coloring-footer">www.colorspark.com</div>
+          </div>
           <div class="gallery-overlay"><span class="gallery-label">Mandala — Flower Pattern</span></div>
         </div>
         <div class="gallery-item" style="background:linear-gradient(145deg,#E8F5E9,#F1F8E9);">
-          <span class="gallery-item-emoji">🌿</span>
+          <div class="coloring-page-mockup">
+            <div class="coloring-cut-line"></div>
+            <div class="coloring-header">🎨 ColorSpark Free Sample</div>
+            <div class="coloring-graphic-wrap">
+              <svg viewBox="0 0 100 100" class="coloring-svg" style="width: 85%; height: 85%; fill: none; stroke: #2D3748; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;">
+                <!-- Monstera Leaf Outline -->
+                <path d="M 50,90 C 50,90 20,70 20,45 C 20,25 35,15 50,15 C 65,15 80,25 80,45 C 80,70 50,90 50,90 Z" />
+                <path d="M 50,15 L 50,90" />
+                <path d="M 40,30 C 32,28 25,28 25,28 M 38,45 C 28,42 22,43 22,43 M 42,60 C 30,58 24,62 24,62" />
+                <path d="M 60,30 C 68,28 75,28 75,28 M 62,45 C 72,42 78,43 78,43 M 58,60 C 70,58 76,62 76,62" />
+              </svg>
+            </div>
+            <div class="coloring-footer">www.colorspark.com</div>
+          </div>
           <div class="gallery-overlay"><span class="gallery-label">Nature — Leaf & Plant</span></div>
         </div>
       </div>
@@ -496,7 +630,14 @@
         <div class="tab-panel active" data-panel="toddlers">
           <div class="grid-4">
             <div class="product-card tilt-card" data-id="t1" data-name="My First Colors" data-price="5.99" data-emoji="🎨" data-category="toddlers" data-format="digital" data-age="toddler" data-rating="4.9" data-price-sort="5.99">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#FFF8E1,#E3F2FD);">🎨</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #FF6B6B 0%, #FFD166 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">My First Colors</div>
+                  <div class="book-cover-graphic">🎨</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-digital" style="position:static;display:inline-block;margin-bottom:.5rem;">DIGITAL</span>
                 <h4>My First Colors</h4><div class="author">Ages 2–4</div>
@@ -506,7 +647,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="t2" data-name="Animal Friends Book" data-price="6.99" data-emoji="🐾" data-category="toddlers" data-format="physical" data-age="toddler" data-rating="4.8" data-price-sort="6.99">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#E8F5E9,#F1F8E9);">🐾</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #4ECDC4 0%, #556270 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Animal Friends</div>
+                  <div class="book-cover-graphic">🐾</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-physical" style="position:static;display:inline-block;margin-bottom:.5rem;">PHYSICAL</span>
                 <h4>Animal Friends Book</h4><div class="author">Ages 2–4</div>
@@ -516,7 +664,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="t3" data-name="Big Bold Shapes" data-price="4.99" data-emoji="🔶" data-category="toddlers" data-format="digital" data-age="toddler" data-rating="4.7">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#FFF3F1,#FFF8E1);">🔶</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #FF8008 0%, #FFC837 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Big Bold Shapes</div>
+                  <div class="book-cover-graphic">🔶</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-digital" style="position:static;display:inline-block;margin-bottom:.5rem;">DIGITAL</span>
                 <h4>Big Bold Shapes</h4><div class="author">Ages 2–4</div>
@@ -526,7 +681,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="t4" data-name="Nursery Rhyme Activity" data-price="7.49" data-emoji="🎵" data-category="toddlers" data-format="physical" data-age="toddler" data-rating="4.9">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#F3E5F5,#EDE7F6);">🎵</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #9B59B6 0%, #E74C3C 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Nursery Rhyme</div>
+                  <div class="book-cover-graphic">🎵</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-new" style="position:static;display:inline-block;margin-bottom:.5rem;">NEW</span>
                 <h4>Nursery Rhyme Activity</h4><div class="author">Ages 3–5</div>
@@ -540,7 +702,14 @@
         <div class="tab-panel" data-panel="kids">
           <div class="grid-4">
             <div class="product-card tilt-card" data-id="k1" data-name="Dino World Adventure" data-price="8.99" data-emoji="🦕" data-category="kids" data-format="digital" data-age="kids" data-rating="4.9">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#E3F2FD,#FFF8E1);">🦕</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Dino World</div>
+                  <div class="book-cover-graphic">🦕</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-best" style="position:static;display:inline-block;margin-bottom:.5rem;">BEST SELLER</span>
                 <h4>Dino World Adventure</h4><div class="author">Ages 5–9</div>
@@ -550,7 +719,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="k2" data-name="Science Lab Activity" data-price="10.99" data-emoji="🔬" data-category="kids" data-format="physical" data-age="kids" data-rating="4.8">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#E8F5E9,#E3F2FD);">🔬</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Science Lab</div>
+                  <div class="book-cover-graphic">🔬</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-new" style="position:static;display:inline-block;margin-bottom:.5rem;">NEW</span>
                 <h4>Science Lab Activity</h4><div class="author">Ages 6–10</div>
@@ -560,7 +736,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="k3" data-name="Ocean Adventures" data-price="9.49" data-emoji="🐠" data-category="kids" data-format="digital" data-age="kids" data-rating="4.7">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#E1F5FE,#B3E5FC);">🐠</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Ocean Adventures</div>
+                  <div class="book-cover-graphic">🐠</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-digital" style="position:static;display:inline-block;margin-bottom:.5rem;">DIGITAL</span>
                 <h4>Ocean Adventures</h4><div class="author">Ages 5–8</div>
@@ -570,7 +753,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="k4" data-name="Superhero Activity Pack" data-price="11.99" data-emoji="🦸" data-category="kids" data-format="physical" data-age="kids" data-rating="4.9">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#FFF3F1,#F3E5F5);">🦸</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Superhero Activity</div>
+                  <div class="book-cover-graphic">🦸</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-sale" style="position:static;display:inline-block;margin-bottom:.5rem;">SALE</span>
                 <h4>Superhero Activity Pack</h4><div class="author">Ages 6–10</div>
@@ -584,7 +774,14 @@
         <div class="tab-panel" data-panel="tweens">
           <div class="grid-4">
             <div class="product-card tilt-card" data-id="tw1" data-name="Fantasy World Coloring" data-price="12.99" data-emoji="🧙" data-category="tweens" data-format="digital" data-age="tweens" data-rating="4.8">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#EDE7F6,#F3E5F5);">🧙</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Fantasy World</div>
+                  <div class="book-cover-graphic">🧙</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-digital" style="position:static;display:inline-block;margin-bottom:.5rem;">DIGITAL</span>
                 <h4>Fantasy World Coloring</h4><div class="author">Ages 10–14</div>
@@ -594,7 +791,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="tw2" data-name="Anime Style Sketchbook" data-price="14.99" data-emoji="🎌" data-category="tweens" data-format="physical" data-age="tweens" data-rating="4.9">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#FCE4EC,#FFF3F1);">🎌</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #e65c00 0%, #F9D423 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Anime Style</div>
+                  <div class="book-cover-graphic">🎌</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-new" style="position:static;display:inline-block;margin-bottom:.5rem;">NEW</span>
                 <h4>Anime Style Sketchbook</h4><div class="author">Ages 10–15</div>
@@ -604,7 +808,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="tw3" data-name="Science Facts Activity" data-price="11.99" data-emoji="🧬" data-category="tweens" data-format="digital" data-age="tweens" data-rating="4.7">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#E3F2FD,#E8F5E9);">🧬</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #1D976C 0%, #93F9B9 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Science Facts</div>
+                  <div class="book-cover-graphic">🧬</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-digital" style="position:static;display:inline-block;margin-bottom:.5rem;">DIGITAL</span>
                 <h4>Science Facts Activity</h4><div class="author">Ages 10–13</div>
@@ -614,7 +825,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="tw4" data-name="City Art Drawing Book" data-price="13.49" data-emoji="🏙️" data-category="tweens" data-format="physical" data-age="tweens" data-rating="4.8">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#ECEFF1,#CFD8DC);">🏙️</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">City Art</div>
+                  <div class="book-cover-graphic">🏙️</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-best" style="position:static;display:inline-block;margin-bottom:.5rem;">POPULAR</span>
                 <h4>City Art Drawing Book</h4><div class="author">Ages 11–15</div>
@@ -628,7 +846,14 @@
         <div class="tab-panel" data-panel="adults">
           <div class="grid-4">
             <div class="product-card tilt-card" data-id="a1" data-name="Mandala Calm Coloring" data-price="9.99" data-emoji="🌸" data-category="adults" data-format="digital" data-age="adults" data-rating="4.9">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#F3E5F5,#EDE7F6);">🌸</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #f7797d 0%, #FBD786 50%, #C6FFDD 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Mandala Calm</div>
+                  <div class="book-cover-graphic">🌸</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-best" style="position:static;display:inline-block;margin-bottom:.5rem;">BEST SELLER</span>
                 <h4>Mandala Calm Coloring</h4><div class="author">Ages 14+</div>
@@ -638,7 +863,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="a2" data-name="Botanical Art Book" data-price="14.99" data-emoji="🌺" data-category="adults" data-format="physical" data-age="adults" data-rating="4.8">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#E8F5E9,#F1F8E9);">🌺</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Botanical Art</div>
+                  <div class="book-cover-graphic">🌺</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-new" style="position:static;display:inline-block;margin-bottom:.5rem;">NEW</span>
                 <h4>Botanical Art Book</h4><div class="author">Adults</div>
@@ -648,7 +880,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="a3" data-name="Zen Patterns Coloring" data-price="11.99" data-emoji="☯️" data-category="adults" data-format="digital" data-age="adults" data-rating="4.7">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#FAFAFA,#ECEFF1);">☯️</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Zen Patterns</div>
+                  <div class="book-cover-graphic">☯️</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-digital" style="position:static;display:inline-block;margin-bottom:.5rem;">DIGITAL</span>
                 <h4>Zen Patterns Coloring</h4><div class="author">Adults</div>
@@ -658,7 +897,14 @@
               </div>
             </div>
             <div class="product-card tilt-card" data-id="a4" data-name="Architecture Art Coloring" data-price="16.99" data-emoji="🏛️" data-category="adults" data-format="physical" data-age="adults" data-rating="4.9">
-              <div class="product-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(145deg,#FFF8E1,#FFFDE7);">🏛️</div></div>
+              <div class="product-img-wrap">
+                <div class="book-cover-mockup" style="background: linear-gradient(135deg, #6190E8 0%, #A7BFE8 100%);">
+                  <div class="book-cover-spine"></div>
+                  <div class="book-cover-title">Architecture Art</div>
+                  <div class="book-cover-graphic">🏛️</div>
+                  <div class="book-cover-footer">ColorSpark</div>
+                </div>
+              </div>
               <div class="product-info">
                 <span class="product-badge badge-sale" style="position:static;display:inline-block;margin-bottom:.5rem;">SALE</span>
                 <h4>Architecture Art Coloring</h4><div class="author">Adults</div>

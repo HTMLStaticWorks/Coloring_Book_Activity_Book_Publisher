@@ -92,6 +92,18 @@
   --text-secondary: #AAAACC;
   --text-muted:     #6666AA;
   --grad-hero:  linear-gradient(135deg, #0D1B2A 0%, #1A0D2E 50%, #2A1800 100%);
+
+  /* Light color variants (used as card/badge backgrounds) */
+  --sky-blue-light:  rgba(41, 182, 246, 0.15);
+  --yellow-light:    rgba(255, 214, 0, 0.15);
+  --coral-light:     rgba(255, 107, 71, 0.15);
+  --purple-light:    rgba(155, 89, 182, 0.15);
+
+  /* Dark color variants (used as badge text/accents) */
+  --sky-blue-dark:   #29B6F6;
+  --yellow-dark:     #FFD600;
+  --coral-dark:      #FF6B47;
+  --purple-dark:     #D7BDE2;
 }
 
 /* ── Reset & Base ─────────────────────────────────────────── */
@@ -148,10 +160,6 @@ p { color: var(--text-secondary); }
 .label-coral  { background: var(--coral-light); color: var(--coral-dark); }
 .label-purple { background: var(--purple-light); color: var(--purple-dark); }
 
-[data-theme="dark"] .label-blue   { background: rgba(41,182,246,0.15); }
-[data-theme="dark"] .label-yellow { background: rgba(255,214,0,0.15); }
-[data-theme="dark"] .label-coral  { background: rgba(255,107,71,0.15); }
-[data-theme="dark"] .label-purple { background: rgba(155,89,182,0.15); }
 
 .section-title {
   font-family: var(--font-heading);
@@ -329,7 +337,7 @@ p { color: var(--text-secondary); }
   justify-content: center;
   gap: 0.15rem;
   flex: 1;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
@@ -769,16 +777,29 @@ p { color: var(--text-secondary); }
   overflow: hidden;
   transition: all var(--transition);
   box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* prevent grid blowout */
+  width: 100%;
 }
 .blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .blog-img {
   aspect-ratio: 16/9;
   overflow: hidden;
   background: var(--bg-soft);
+  flex-shrink: 0;
 }
 .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .blog-card:hover .blog-img img { transform: scale(1.08); }
-.blog-info { padding: var(--space-xl); }
+.blog-info {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  word-break: break-word;
+}
 .blog-category {
   font-family: var(--font-heading);
   font-size: 0.75rem;
@@ -796,9 +817,32 @@ p { color: var(--text-secondary); }
   margin-bottom: 0.5rem;
   color: var(--text-primary);
   transition: color var(--transition);
+  word-break: break-word;
 }
 .blog-card:hover .blog-title { color: var(--sky-blue); }
-.blog-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 1rem; }
+.blog-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.75rem; }
+.blog-read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-full);
+  background: var(--coral);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  transition: all var(--transition);
+  width: fit-content;
+}
+.blog-read-btn:hover { background: var(--coral-dark); transform: translateX(3px); color: #fff; }
+
+/* Mobile blog grid fix */
+@media (max-width: 700px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .blog-card { max-width: 100%; }
+}
 
 /* ── Forms ────────────────────────────────────────────────── */
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: var(--space-lg); }
@@ -1167,6 +1211,7 @@ p { color: var(--text-secondary); }
 .breadcrumb a:hover { text-decoration: underline; }
 
 /* ── Download Card ────────────────────────────────────────── */
+/* ── Download Card ────────────────────────────────────────── */
 .download-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1174,32 +1219,174 @@ p { color: var(--text-secondary); }
   overflow: hidden;
   transition: all var(--transition);
   box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.download-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+.download-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--sky-blue); }
 .download-preview {
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
   background: var(--bg-soft);
   display: flex; align-items: center; justify-content: center;
-  font-size: 4rem;
   position: relative;
   overflow: hidden;
+  padding: 1.5rem;
 }
-.download-info { padding: var(--space-lg); }
-.download-title { font-family: var(--font-heading); font-weight: 800; font-size: 1rem; margin-bottom: 0.3rem; }
-.download-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: var(--space-md); }
-.download-btn {
-  width: 100%;
-  padding: 0.6rem;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--green) 0%, #2E7D32 100%);
-  color: #fff;
+.download-info {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.download-title {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 0.88rem;
-  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
-  transition: all var(--transition);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+  line-height: 1.35;
 }
-.download-btn:hover { box-shadow: 0 6px 20px rgba(76,175,80,0.4); }
+.download-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+  margin-top: auto; /* forces buttons to bottom */
+}
+.download-footer-split {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.download-btn-split {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all var(--transition);
+  border: none;
+  color: #fff;
+}
+.download-quick-preview-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  border: none;
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+}
+.download-quick-preview-btn:hover {
+  background: var(--sky-blue-light);
+  color: var(--sky-blue);
+}
+
+/* Worksheet Theme Colors */
+.download-card.theme-blue .download-btn-split {
+  background: #0288D1;
+}
+.download-card.theme-blue .download-btn-split:hover {
+  background: #01579B;
+}
+
+.download-card.theme-orange .download-btn-split {
+  background: #F57C00;
+}
+.download-card.theme-orange .download-btn-split:hover {
+  background: #E65100;
+}
+
+.download-card.theme-green .download-btn-split {
+  background: #388E3C;
+}
+.download-card.theme-green .download-btn-split:hover {
+  background: #1B5E20;
+}
+
+.download-card.theme-purple .download-btn-split {
+  background: #7B1FA2;
+}
+.download-card.theme-purple .download-btn-split:hover {
+  background: #4A148C;
+}
+
+/* Worksheet Inside Paper Mockup Styling */
+.worksheet-mockup {
+  width: 85%;
+  height: 90%;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12), 0 3px 10px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+.download-card:hover .worksheet-mockup {
+  transform: scale(1.04) rotate(0deg);
+}
+.worksheet-title {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  text-align: center;
+  margin-bottom: 2px;
+  border-bottom: 1.5px solid #eaeaea;
+  padding-bottom: 2px;
+}
+.worksheet-subtitle {
+  font-size: 0.45rem;
+  color: #666680;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.worksheet-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.worksheet-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px dashed #cccccc;
+  border-radius: 4px;
+  padding: 3px 6px;
+  background: #fafafa;
+}
+.worksheet-dot-line {
+  flex-grow: 1;
+  border-bottom: 1.2px dashed #999999;
+  margin: 0 6px;
+  height: 2px;
+}
+.worksheet-doodle {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+.worksheet-item-num {
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: #0288D1;
+}
+
 
 /* ── Gallery ──────────────────────────────────────────────── */
 .gallery-grid {
@@ -1385,9 +1572,23 @@ p { color: var(--text-secondary); }
 .toast.show { transform: translateY(0); opacity: 1; }
 
 /* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  /* Tighten nav links so all 8 fit on one line at narrower desktops */
+  .nav-link { font-size: 0.82rem; padding: 0.4rem 0.55rem; }
+  .nav-container { gap: var(--space-md); }
+  .nav-logo { font-size: 1.2rem; }
+  .nav-logo-icon { width: 36px; height: 36px; font-size: 1.1rem; }
+}
 @media (max-width: 1100px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1024px) {
+  .nav-link { font-size: 0.78rem; padding: 0.35rem 0.45rem; }
+  .nav-links { gap: 0; }
+  .nav-actions .control-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+  .nav-actions .nav-icon-btn { width: 36px; height: 36px; font-size: 1rem; }
+  .nav-actions .btn-sm { padding: 0.5rem 1rem; font-size: 0.82rem; }
 }
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -1396,7 +1597,36 @@ p { color: var(--text-secondary); }
   .grid-2 { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .cart-drawer { width: 100%; max-width: 420px; }
+  /* Hide control buttons from header on mobile — they go in mobile-nav */
+  .nav-actions .control-btn,
+  .nav-actions .nav-icon-btn { display: none; }
 }
+
+/* Mobile nav utility row (theme / RTL / cart) */
+.mobile-nav-utils {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.mobile-nav-utils .control-btn,
+.mobile-nav-utils .nav-icon-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  position: relative;
+}
+.mobile-nav-utils .control-btn:hover { background: var(--yellow); color: var(--text-primary); border-color: var(--yellow); }
+.mobile-nav-utils .nav-icon-btn:hover { background: var(--sky-blue); border-color: var(--sky-blue); color: #fff; }
+.mobile-nav-utils .btn { flex: 1; justify-content: center; text-align: center; }
 @media (max-width: 600px) {
   .container { padding-inline: var(--space-lg); }
   .section { padding-block: var(--space-2xl); }
@@ -1413,4 +1643,99 @@ p { color: var(--text-secondary); }
 .page-scroll-progress {
   display: none !important;
 }
+
+/* Book Cover Mockup */
+.book-cover-mockup { width: 100%; height: 100%; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 1.5rem 1rem; color: #fff; font-family: var(--font-heading); border-radius: var(--radius-md) 0 0 var(--radius-md); box-shadow: inset 8px 0 10px rgba(0,0,0,0.2), 4px 4px 15px rgba(0,0,0,0.15); overflow: hidden; transition: all var(--transition); }
+.book-cover-spine { position: absolute; left: 0; top: 0; bottom: 0; width: 12px; background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.15) 50%, rgba(0,0,0,0.25) 100%); border-right: 1px solid rgba(0,0,0,0.15); z-index: 3; }
+.book-cover-title { font-weight: 900; font-size: 0.95rem; text-align: center; line-height: 1.25; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); z-index: 2; margin-left: 8px; }
+.book-cover-graphic { font-size: 3.5rem; z-index: 2; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2)); transition: transform var(--transition); }
+.product-card:hover .book-cover-graphic { transform: scale(1.15) rotate(-6deg); }
+.book-cover-footer { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.95; z-index: 2; background: rgba(255,255,255,0.25); padding: 2px 10px; border-radius: 99px; backdrop-filter: blur(4px); }
+
+/* ── Split Button Footer Styles ───────────────────────────── */
+.product-card-footer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.85rem;
+}
+.product-add-btn-split {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all var(--transition);
+  border: none;
+}
+.product-quick-view-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Theme overrides */
+.product-card.theme-purple .product-add-btn-split {
+  background: var(--purple-light);
+  color: var(--purple-dark);
+}
+.product-card.theme-purple .product-add-btn-split:hover {
+  background: var(--purple);
+  color: #fff;
+}
+.product-card.theme-purple .product-quick-view-btn {
+  background: var(--purple-light);
+  color: var(--purple-dark);
+}
+.product-card.theme-purple .product-quick-view-btn:hover {
+  background: var(--purple);
+  color: #fff;
+}
+
+.product-card.theme-blue .product-add-btn-split {
+  background: var(--sky-blue-light);
+  color: var(--sky-blue-dark);
+}
+.product-card.theme-blue .product-add-btn-split:hover {
+  background: var(--sky-blue);
+  color: #fff;
+}
+.product-card.theme-blue .product-quick-view-btn {
+  background: var(--sky-blue-light);
+  color: var(--sky-blue-dark);
+}
+.product-card.theme-blue .product-quick-view-btn:hover {
+  background: var(--sky-blue);
+  color: #fff;
+}
+
+.product-card.theme-coral .product-add-btn-split {
+  background: var(--coral-light);
+  color: var(--coral-dark);
+}
+.product-card.theme-coral .product-add-btn-split:hover {
+  background: var(--coral);
+  color: #fff;
+}
+.product-card.theme-coral .product-quick-view-btn {
+  background: var(--coral-light);
+  color: var(--coral-dark);
+}
+.product-card.theme-coral .product-quick-view-btn:hover {
+  background: var(--coral);
+  color: #fff;
+}
+
 

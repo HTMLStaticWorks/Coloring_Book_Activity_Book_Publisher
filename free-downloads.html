@@ -15,27 +15,57 @@
     .page-scroll-progress { position:fixed;top:0;left:0;height:3px;background:var(--grad-rainbow);z-index:2000;width:0; }
     .dl-hero { background: linear-gradient(135deg, #E8F5E9 0%, #E1F5FE 50%, #F3E5F5 100%); }
     [data-theme="dark"] .dl-hero { background: linear-gradient(135deg, #0A1A0A 0%, #0A0A1A 50%, #1A0A1A 100%); }
-    .download-pack { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; display: flex; align-items: center; gap: 2rem; margin-bottom: 1.5rem; transition: all var(--transition); box-shadow: var(--shadow-card); }
+
+    /* Download pack rows */
+    .download-pack { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; display: flex; align-items: center; gap: 2rem; margin-bottom: 1.5rem; transition: all var(--transition); box-shadow: var(--shadow-card); flex-wrap: wrap; }
     .download-pack:hover { transform: translateX(6px); box-shadow: var(--shadow-lg); border-color: var(--green); }
-    @media (max-width: 600px) { .download-pack { flex-direction: column; text-align: center; } }
+    @media (max-width: 600px) { .download-pack { flex-direction: column; text-align: center; align-items: center; gap: 1rem; padding: 1.5rem 1rem; } }
     .dl-pack-icon { width: 80px; height: 80px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; flex-shrink: 0; }
-    .dl-pack-info { flex: 1; }
-    .dl-pack-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; margin-bottom: .4rem; color: var(--text-primary); }
+    .dl-pack-info { flex: 1; min-width: 0; }
+    .dl-pack-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; margin-bottom: .4rem; color: var(--text-primary); word-break: break-word; }
     .dl-pack-meta { font-size: .85rem; color: var(--text-muted); margin-bottom: .75rem; }
     .dl-pack-tags { display: flex; gap: .5rem; flex-wrap: wrap; }
     .dl-tag { padding: .2rem .7rem; border-radius: 999px; font-size: .75rem; font-weight: 700; font-family: var(--font-heading); }
+
     /* Gated download form */
     .gate-box { background: var(--bg-card); border: 2px solid var(--sky-blue); border-radius: var(--radius-xl); padding: 2.5rem; text-align: center; }
+    @media (max-width: 600px) { .gate-box { padding: 1.5rem 1rem; } }
     .gate-box h3 { margin-bottom: .5rem; }
     .gate-perks { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin: 1.25rem 0; }
     .gate-perk { display: flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: var(--text-secondary); }
     .gate-perk::before { content: '✓'; color: var(--green); font-weight: 800; }
+
     /* Challenge cards */
     .challenge-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; text-align: center; box-shadow: var(--shadow-card); transition: all var(--transition); }
     .challenge-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .challenge-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
     .challenge-title { font-family: var(--font-heading); font-weight: 800; margin-bottom: .5rem; }
     .challenge-diff { display: inline-block; padding: .2rem .75rem; border-radius: 999px; font-size: .75rem; font-weight: 800; margin-bottom: 1rem; }
+
+    /* Hero CTA buttons — full width on small phones */
+    @media (max-width: 600px) {
+      .dl-hero .btn-group { flex-direction: column; align-items: stretch; }
+      .dl-hero .btn-group .btn { width: 100%; justify-content: center; }
+    }
+
+    /* Free packs grid — responsive gap */
+    @media (max-width: 900px) {
+      .dl-packs-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    }
+
+    /* Worksheets & challenge grids on mobile */
+    @media (max-width: 700px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
+    }
+    @media (max-width: 420px) {
+      .grid-4 { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr) !important; gap: 1.25rem !important; }
+    }
+    @media (max-width: 560px) {
+      .grid-3 { grid-template-columns: 1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -72,17 +102,23 @@
     <a href="free-downloads.html" class="nav-link">⬇️ Free Downloads</a>
     <a href="contact.html" class="nav-link">📬 Contact</a>
     <a href="login.html" class="nav-link">🔑 Login</a>
+    <div class="mobile-nav-utils">
+      <button class="control-btn theme-toggle-btn" title="Toggle Dark Mode">🌙</button>
+      <button class="control-btn rtl-toggle-btn" title="Toggle RTL">↔️</button>
+      <button class="nav-icon-btn open-cart-btn" title="Shopping Cart">🛒<span class="cart-count">0</span></button>
+      <a href="login.html" class="btn btn-primary btn-sm" style="flex:1;text-align:center;">Signup</a>
+    </div>
   </div>
 
   <!-- HERO -->
   <section class="page-hero dl-hero">
     <div class="floating-shapes" data-shape-count="8" style="opacity:.2;"></div>
-    <div class="container" style="position:relative;z-index:2;">
+    <div class="container" style="position:relative;z-index:2;text-align:center;">
       <div class="breadcrumb" style="justify-content:center;"><a href="index.html">Home</a> <span>›</span> <span>Free Downloads</span></div>
       <span class="section-label label-purple">100% Free</span>
       <h1 class="reveal">Free Coloring Pages &amp; Worksheets</h1>
-      <p class="reveal reveal-delay-1">Download premium-quality coloring pages, printable worksheets, and activity challenges absolutely free! No credit card needed — just your email address.</p>
-      <div class="btn-group" style="justify-content:center;margin-top:2rem;" class="reveal reveal-delay-2">
+      <p class="reveal reveal-delay-1" style="max-width:540px;margin-inline:auto;">Download premium-quality coloring pages, printable worksheets, and activity challenges absolutely free! No credit card needed — just your email address.</p>
+      <div class="btn-group reveal reveal-delay-2" style="justify-content:center;margin-top:2rem;">
         <a href="#free-packs" class="btn btn-primary btn-lg">⬇️ Browse Free Downloads</a>
         <a href="shop.html" class="btn btn-outline btn-lg">🛍️ Premium Books</a>
       </div>
@@ -98,7 +134,7 @@
   <!-- FREE PACKS -->
   <section class="section" id="free-packs">
     <div class="container">
-      <div class="grid-2" style="gap:4rem;align-items:start;">
+      <div class="dl-packs-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
         <!-- Left: Download list -->
         <div>
           <div class="reveal">
@@ -227,36 +263,159 @@
         <p class="section-subtitle">Classroom-ready worksheets aligned with early childhood education standards. Free to download and print unlimited times.</p>
       </div>
       <div class="grid-4">
-        <div class="download-card reveal reveal-delay-1">
-          <div class="download-preview" style="background:linear-gradient(145deg,#E3F2FD,#F3E5F5);">🔢</div>
+        <!-- Card 1: Numbers 1-10 -->
+        <div class="download-card theme-blue reveal reveal-delay-1">
+          <div class="download-preview" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">
+            <!-- Floating Decorative Emojis -->
+            <span style="position:absolute;top:10px;left:15px;font-size:1.6rem;opacity:0.85;font-weight:bold;color:#1e88e5;transform:rotate(-10deg);">1</span>
+            <span style="position:absolute;top:8px;right:20px;font-size:1.8rem;opacity:0.85;font-weight:bold;color:#43a047;transform:rotate(15deg);">2</span>
+            <span style="position:absolute;bottom:10px;left:18px;font-size:1.5rem;opacity:0.85;font-weight:bold;color:#e53935;transform:rotate(5deg);">3</span>
+            <span style="position:absolute;bottom:12px;right:15px;font-size:1.7rem;opacity:0.85;font-weight:bold;color:#8e24aa;transform:rotate(-15deg);">4</span>
+            
+            <!-- White Worksheet Mockup Page -->
+            <div class="worksheet-mockup">
+              <div class="worksheet-title" style="color:#0288D1;">Count &amp; Color</div>
+              <div class="worksheet-subtitle">Numbers 1–10</div>
+              <div class="worksheet-content">
+                <div class="worksheet-row">
+                  <span class="worksheet-item-num">1</span>
+                  <span style="font-size:0.6rem;">🍎</span>
+                  <div class="worksheet-dot-line"></div>
+                </div>
+                <div class="worksheet-row">
+                  <span class="worksheet-item-num">2</span>
+                  <span style="font-size:0.6rem;">⭐⭐</span>
+                  <div class="worksheet-dot-line"></div>
+                </div>
+                <div class="worksheet-row">
+                  <span class="worksheet-item-num">3</span>
+                  <span style="font-size:0.6rem;">🌸🌸🌸</span>
+                  <div class="worksheet-dot-line"></div>
+                </div>
+                <div class="worksheet-row">
+                  <span class="worksheet-item-num">4</span>
+                  <span style="font-size:0.6rem;">🦋🦋🦋🦋</span>
+                  <div class="worksheet-dot-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="download-info">
-            <div class="download-title">Count & Color — Numbers 1–10</div>
+            <div class="download-title">Count &amp; Color — Numbers 1–10</div>
             <div class="download-meta">Grades K–1 · 1 Page · Math</div>
-            <button class="download-btn" onclick="showDownloadToast('🔢 Count & Color Worksheet')">⬇️ Free Download</button>
+            <div class="download-footer-split">
+              <button class="download-btn-split" onclick="showDownloadToast('🔢 Count &amp; Color Worksheet')">⬇️ Free Download</button>
+              <button class="download-quick-preview-btn" onclick="showDownloadToast('🔢 Previewing Count &amp; Color')" title="Quick Preview">👁️</button>
+            </div>
           </div>
         </div>
-        <div class="download-card reveal reveal-delay-2">
-          <div class="download-preview" style="background:linear-gradient(145deg,#FFF8E1,#FFFDE7);">🔤</div>
+
+        <!-- Card 2: Alphabet Practice -->
+        <div class="download-card theme-orange reveal reveal-delay-2">
+          <div class="download-preview" style="background: linear-gradient(135deg, #fff9c4, #ffe082);">
+            <!-- Floating Decorative Emojis -->
+            <span style="position:absolute;top:10px;left:15px;font-size:1.6rem;opacity:0.95;">🍎</span>
+            <span style="position:absolute;top:10px;right:15px;font-size:1.4rem;opacity:0.9;font-weight:900;color:#e65100;">abc</span>
+            
+            <!-- White Worksheet Mockup Page -->
+            <div class="worksheet-mockup" style="transform:rotate(1deg);">
+              <div class="worksheet-title" style="color:#F57C00;">Alphabet Practice</div>
+              <div class="worksheet-subtitle">A–Z Letter Tracing</div>
+              <div class="worksheet-content" style="gap:8px;">
+                <div style="display:flex;align-items:center;gap:5px;border-bottom:1.5px dashed #dddddd;padding-bottom:5px;">
+                  <span style="font-size:1rem;font-weight:800;color:#333;">A a</span>
+                  <div style="font-size:0.5rem;color:#777;font-family:monospace;letter-spacing:2px;flex-grow:1;text-align:center;">A A A A</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:5px;border-bottom:1.5px dashed #dddddd;padding-bottom:5px;">
+                  <span style="font-size:1rem;font-weight:800;color:#333;">B b</span>
+                  <div style="font-size:0.5rem;color:#777;font-family:monospace;letter-spacing:2px;flex-grow:1;text-align:center;">B B B B</div>
+                </div>
+                <div style="display:flex;justify-content:center;margin-top:2px;">
+                  <span style="font-size:1.2rem;animation:bounce 2s infinite;">✏️</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="download-info">
             <div class="download-title">Alphabet Practice A–Z</div>
             <div class="download-meta">Pre-K · 1 Page · Literacy</div>
-            <button class="download-btn" onclick="showDownloadToast('🔤 Alphabet Practice Worksheet')">⬇️ Free Download</button>
+            <div class="download-footer-split">
+              <button class="download-btn-split" onclick="showDownloadToast('🔤 Alphabet Practice Worksheet')">⬇️ Free Download</button>
+              <button class="download-quick-preview-btn" onclick="showDownloadToast('🔤 Previewing Alphabet Practice')" title="Quick Preview">👁️</button>
+            </div>
           </div>
         </div>
-        <div class="download-card reveal reveal-delay-3">
-          <div class="download-preview" style="background:linear-gradient(145deg,#E8F5E9,#F1F8E9);">🟢</div>
+
+        <!-- Card 3: Shapes Matching -->
+        <div class="download-card theme-green reveal reveal-delay-3">
+          <div class="download-preview" style="background: linear-gradient(135deg, #e8f5e9, #a5d6a7);">
+            <!-- Floating Decorative Emojis -->
+            <span style="position:absolute;top:10px;left:15px;font-size:1.4rem;opacity:0.85;">🟦</span>
+            <span style="position:absolute;top:8px;right:15px;font-size:1.5rem;opacity:0.9;">🌈</span>
+            <span style="position:absolute;bottom:10px;left:15px;font-size:1.3rem;opacity:0.85;">🟡</span>
+            
+            <!-- White Worksheet Mockup Page -->
+            <div class="worksheet-mockup" style="transform:rotate(-1deg);">
+              <div class="worksheet-title" style="color:#388E3C;">Match the Shapes</div>
+              <div class="worksheet-subtitle">Draw a line to match</div>
+              <div class="worksheet-content" style="padding:5px 2px;justify-content:space-around;">
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.5rem;font-weight:700;">
+                  <span style="color:#e53935;">🔴 Circle</span>
+                  <span style="border:1px solid #ccc;padding:1px 4px;border-radius:3px;font-size:0.4rem;color:#e53935;">Red</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.5rem;font-weight:700;">
+                  <span style="color:#1e88e5;">🟦 Square</span>
+                  <span style="border:1px solid #ccc;padding:1px 4px;border-radius:3px;font-size:0.4rem;color:#1e88e5;">Blue</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.5rem;font-weight:700;">
+                  <span style="color:#43a047;">🔺 Triangle</span>
+                  <span style="border:1px solid #ccc;padding:1px 4px;border-radius:3px;font-size:0.4rem;color:#43a047;">Green</span>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="download-info">
-            <div class="download-title">Shapes & Colors Matching</div>
+            <div class="download-title">Shapes &amp; Colors Matching</div>
             <div class="download-meta">Ages 3–5 · 1 Page · Concepts</div>
-            <button class="download-btn" onclick="showDownloadToast('🟢 Shapes & Colors Worksheet')">⬇️ Free Download</button>
+            <div class="download-footer-split">
+              <button class="download-btn-split" onclick="showDownloadToast('🟢 Shapes &amp; Colors Worksheet')">⬇️ Free Download</button>
+              <button class="download-quick-preview-btn" onclick="showDownloadToast('🟢 Previewing Shapes &amp; Colors')" title="Quick Preview">👁️</button>
+            </div>
           </div>
         </div>
-        <div class="download-card reveal reveal-delay-4">
-          <div class="download-preview" style="background:linear-gradient(145deg,#F3E5F5,#EDE7F6);">🌸</div>
+
+        <!-- Card 4: Fall Coloring -->
+        <div class="download-card theme-purple reveal reveal-delay-4">
+          <div class="download-preview" style="background: linear-gradient(135deg, #f3e5f5, #d1c4e9);">
+            <!-- Floating Decorative Emojis -->
+            <span style="position:absolute;top:10px;left:15px;font-size:1.5rem;opacity:0.9;">🍁</span>
+            <span style="position:absolute;top:10px;right:20px;font-size:1.4rem;opacity:0.9;">🍂</span>
+            <span style="position:absolute;bottom:10px;right:15px;font-size:1.5rem;opacity:0.9;">🌰</span>
+            
+            <!-- White Worksheet Mockup Page -->
+            <div class="worksheet-mockup" style="transform:rotate(1.5deg);">
+              <div class="worksheet-title" style="color:#7B1FA2;">Fall Coloring</div>
+              <div class="worksheet-subtitle">Seasons &amp; Nature</div>
+              <div class="worksheet-content" style="align-items:center;justify-content:center;">
+                <svg viewBox="0 0 100 60" style="width:90%;height:90%;fill:none;stroke:#333;stroke-width:1.5;stroke-linecap:round;">
+                  <!-- Pumpkin -->
+                  <ellipse cx="50" cy="35" rx="18" ry="14" />
+                  <ellipse cx="50" cy="35" rx="10" ry="14" />
+                  <line x1="50" y1="21" x2="50" y2="15" style="stroke-width:2.5;" />
+                  <!-- Leaves -->
+                  <path d="M15,20 Q25,10 30,25 Z" />
+                  <path d="M85,25 Q75,15 70,30 Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
           <div class="download-info">
-            <div class="download-title">Seasons & Nature Coloring</div>
+            <div class="download-title">Seasons &amp; Nature Coloring</div>
             <div class="download-meta">Grades K–2 · 1 Page · Science</div>
-            <button class="download-btn" onclick="showDownloadToast('🌸 Seasons Coloring Worksheet')">⬇️ Free Download</button>
+            <div class="download-footer-split">
+              <button class="download-btn-split" onclick="showDownloadToast('🌸 Seasons Coloring Worksheet')">⬇️ Free Download</button>
+              <button class="download-quick-preview-btn" onclick="showDownloadToast('🌸 Previewing Seasons Coloring')" title="Quick Preview">👁️</button>
+            </div>
           </div>
         </div>
       </div>
@@ -301,7 +460,13 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><div class="footer-logo"><div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🎨</div><span>ColorSpark</span></div><p class="footer-desc">Premium coloring books for creative minds.</p><div class="footer-social">
+        <div>
+          <div class="footer-logo">
+            <div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🎨</div>
+            <span>ColorSpark</span>
+          </div>
+          <p class="footer-desc">Premium coloring books and activity books for children, educators, and adults. Sparking creativity since 2018.</p>
+          <div class="footer-social">
             <a href="#" class="social-btn" title="Facebook">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
             </a>
@@ -314,12 +479,45 @@
             <a href="#" class="social-btn" title="YouTube">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-          </div></div>
-        <div class="footer-col"><h5>Shop</h5><div class="footer-links"><a href="shop.html" class="footer-link">All Books</a><a href="free-downloads.html" class="footer-link">Free Downloads</a></div></div>
-        <div class="footer-col"><h5>Help</h5><div class="footer-links"><a href="contact.html#faq-section" class="footer-link">FAQ</a><a href="contact.html" class="footer-link">Contact</a><a href="about.html" class="footer-link">About</a></div></div>
-        <div class="footer-col"><h5>More</h5><div class="footer-links"><a href="blog.html" class="footer-link">Blog</a><a href="collections.html" class="footer-link">Collections</a><a href="login.html" class="footer-link">Login</a></div></div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Shop</h5>
+          <div class="footer-links">
+            <a href="shop.html" class="footer-link">All Books</a>
+            <a href="shop.html" class="footer-link">New Releases</a>
+            <a href="shop.html" class="footer-link">Best Sellers</a>
+            <a href="shop.html" class="footer-link">Digital Downloads</a>
+            <a href="shop.html" class="footer-link">Physical Books</a>
+            <a href="free-downloads.html" class="footer-link">Free Samples</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Categories</h5>
+          <div class="footer-links">
+            <a href="collections.html" class="footer-link">Animals</a>
+            <a href="collections.html" class="footer-link">Dinosaurs</a>
+            <a href="collections.html" class="footer-link">Space</a>
+            <a href="collections.html" class="footer-link">Mandala</a>
+            <a href="collections.html" class="footer-link">Educational</a>
+            <a href="collections.html" class="footer-link">Holiday</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Help</h5>
+          <div class="footer-links">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="contact.html#faq-section" class="footer-link">FAQ</a>
+            <a href="blog.html" class="footer-link">Blog</a>
+            <a href="login.html" class="footer-link">My Account</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 ColorSpark.</span></div>
+      <div class="footer-bottom">
+        <span>© 2026 ColorSpark. All rights reserved.</span>
+        <span>Made with ❤️ for creative minds everywhere</span>
+      </div>
     </div>
   </footer>
 

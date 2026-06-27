@@ -221,8 +221,8 @@
       return;
     }
     // Add to cart
-    if (e.target.closest('.product-add-btn')) {
-      const btn = e.target.closest('.product-add-btn');
+    if (e.target.closest('.product-add-btn') || e.target.closest('.product-add-btn-split')) {
+      const btn = e.target.closest('.product-add-btn') || e.target.closest('.product-add-btn-split');
       const id   = btn.dataset.id   || 'book-' + Math.random().toString(36).substr(2,6);
       const name = btn.dataset.name || 'ColorSpark Book';
       const price= parseFloat(btn.dataset.price) || 9.99;
@@ -338,6 +338,18 @@
       showToast('📥 Your free download is ready!');
       if (btn) { btn.textContent = '⬇️ Download Again'; btn.disabled = false; }
     }, 1500);
+  });
+
+  /* ── Category Scroll Row Buttons ─────────────────────────── */
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.cat-scroll-btn');
+    if (!btn) return;
+    const wrapper = btn.closest('.cat-scroll-wrapper');
+    const row = wrapper?.querySelector('.cat-scroll-row');
+    if (!row) return;
+    const isPrev = btn.classList.contains('prev-btn');
+    const scrollAmount = isPrev ? -280 : 280;
+    row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
 
   /* ── DOMContentLoaded init ───────────────────────────────── */
