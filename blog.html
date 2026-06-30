@@ -114,15 +114,62 @@
       .blog-layout .grid-2 { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 600px) {
-      .sidebar-widget, .sidebar-newsletter { padding: 1.25rem 1rem; }
-      .blog-info { padding: 1.25rem 1rem; }
-      .featured-post-info { padding: 1.5rem; }
-    }
-
     @media (max-width: 700px) {
       .blog-card { transform: translateZ(0); }
       .blog-card .blog-img { border-top-left-radius: inherit; border-top-right-radius: inherit; }
+    }
+
+    @media (max-width: 600px) {
+      .sidebar-widget, .sidebar-newsletter { padding: 1.25rem 1rem; }
+      .blog-info { padding: 1.25rem 1rem; }
+      
+      /* Smooth horizontal scrolling for categories on mobile */
+      .blog-category-bar {
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        padding: 1.25rem 1rem !important;
+        gap: 1.25rem !important;
+        margin-bottom: 2rem !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+      }
+      .blog-category-bar::-webkit-scrollbar {
+        display: none; /* Safari/Chrome */
+      }
+      .blog-category-item {
+        flex: 0 0 auto !important;
+      }
+      
+      /* Featured post responsive adjustments */
+      .featured-post {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+      }
+      .featured-post-info {
+        padding: 1.5rem 1.25rem !important;
+      }
+      .featured-title {
+        font-size: 1.4rem !important;
+      }
+      
+      /* Hero section mobile adjustments */
+      .blog-hero-img {
+        transform: none !important;
+        max-width: 90% !important;
+        margin-top: 1rem;
+      }
+      .blog-hero-img:hover {
+        transform: scale(1.02) !important;
+      }
+
+      /* Clean pagination on mobile (hides numeric buttons to prevent wide page stretch) */
+      .blog-pagination .page-num {
+        display: none !important;
+      }
+      .blog-pagination .page-indicator {
+        display: inline-block !important;
+      }
     }
   </style>
 </head>
@@ -324,13 +371,14 @@
           </div>
 
           <!-- Pagination -->
-          <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:3rem;" class="reveal">
+          <div class="blog-pagination reveal" style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:3rem;">
             <button class="btn btn-outline btn-sm" style="border-radius:var(--radius-md);">← Prev</button>
-            <button class="btn btn-secondary btn-sm" style="border-radius:var(--radius-md);">1</button>
-            <button class="btn btn-outline btn-sm" style="border-radius:var(--radius-md);">2</button>
-            <button class="btn btn-outline btn-sm" style="border-radius:var(--radius-md);">3</button>
-            <span style="color:var(--text-muted);">...</span>
-            <button class="btn btn-outline btn-sm" style="border-radius:var(--radius-md);">12</button>
+            <button class="btn btn-secondary btn-sm page-num" style="border-radius:var(--radius-md);">1</button>
+            <button class="btn btn-outline btn-sm page-num" style="border-radius:var(--radius-md);">2</button>
+            <button class="btn btn-outline btn-sm page-num" style="border-radius:var(--radius-md);">3</button>
+            <span class="page-num" style="color:var(--text-muted); padding: 0 0.25rem;">...</span>
+            <button class="btn btn-outline btn-sm page-num" style="border-radius:var(--radius-md);">12</button>
+            <span class="page-indicator" style="display:none; font-family:var(--font-heading); font-weight:700; font-size:0.9rem; color:var(--text-secondary); margin:0 1rem;">Page 1 of 12</span>
             <button class="btn btn-outline btn-sm" style="border-radius:var(--radius-md);">Next →</button>
           </div>
         </div>

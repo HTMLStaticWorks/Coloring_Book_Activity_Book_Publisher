@@ -1636,7 +1636,8 @@ p { color: var(--text-secondary); }
 .mobile-nav-utils .nav-icon-btn:hover { background: var(--sky-blue); border-color: var(--sky-blue); color: #fff; }
 .mobile-nav-utils .btn { flex: 1; justify-content: center; text-align: center; }
 @media (max-width: 600px) {
-  .container { padding-inline: var(--space-lg); }
+  .container { padding-inline: 1rem; }
+  .nav-container { padding-inline: 1rem; }
   .section { padding-block: var(--space-2xl); }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
