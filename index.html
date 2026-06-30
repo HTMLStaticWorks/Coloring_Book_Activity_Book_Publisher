@@ -72,10 +72,12 @@
     .cat-mini-name { font-family: var(--font-heading); font-weight: 800; font-size: .82rem; color: var(--text-primary); }
 
     /* Benefits */
-    .benefit-icon { width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1rem; flex-shrink: 0; overflow: hidden; }
-    .benefit-icon img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
-    .benefit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-card); transition: all var(--transition); }
+    .benefit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-card); transition: all var(--transition); }
     .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .benefit-img-wrap { width: 100%; height: 220px; display: flex; align-items: center; justify-content: center; padding: 0.5rem; transition: background var(--transition); }
+    .benefit-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform var(--transition); }
+    .benefit-card:hover .benefit-img-wrap img { transform: scale(1.08); }
+    .benefit-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
 
     /* Age tabs */
     .age-product-img { aspect-ratio: 3/4; background: var(--bg-soft); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; margin-bottom: 1rem; }
@@ -125,7 +127,7 @@
     .school-stat span:last-child { flex: 1; color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: .92rem; line-height: 1.4; text-align: left; }
 
     /* New releases */
-    .new-releases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; }
+    .new-releases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 280px)); gap: 1.5rem; justify-content: center; }
   </style>
 </head>
 <body>
@@ -183,7 +185,7 @@
   </div>
 
   <!-- ── HERO ──────────────────────────────────────── -->
-  <section class="hero-home" style="position:relative; overflow-x:hidden; overflow-y:visible;">
+  <section class="hero-home" style="position:relative; overflow:hidden;">
     <div class="hero-bg"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
@@ -444,34 +446,58 @@
       </div>
       <div class="grid-3" style="margin-bottom:3rem;">
         <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-icon" style="background:var(--sky-blue-light);"><img src="images/motor_skills.png" alt="Develops Fine Motor Skills"></div>
-          <h4>Develops Fine Motor Skills</h4>
-          <p style="font-size:.9rem;margin-top:.5rem;">Precise coloring activities build hand-eye coordination and pencil control in young learners.</p>
+          <div class="benefit-img-wrap" style="background:var(--sky-blue-light);">
+            <img src="images/motor_skills.png" alt="Develops Fine Motor Skills">
+          </div>
+          <div class="benefit-content">
+            <h4>Develops Fine Motor Skills</h4>
+            <p style="font-size:.9rem;margin-top:.5rem;">Precise coloring activities build hand-eye coordination and pencil control in young learners.</p>
+          </div>
         </div>
         <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-icon" style="background:var(--yellow-light);"><img src="images/creative_thinking.png" alt="Sparks Creative Thinking"></div>
-          <h4>Sparks Creative Thinking</h4>
-          <p style="font-size:.9rem;margin-top:.5rem;">Open-ended art activities nurture imagination and encourage self-expression from an early age.</p>
+          <div class="benefit-img-wrap" style="background:var(--yellow-light);">
+            <img src="images/creative_thinking.png" alt="Sparks Creative Thinking">
+          </div>
+          <div class="benefit-content">
+            <h4>Sparks Creative Thinking</h4>
+            <p style="font-size:.9rem;margin-top:.5rem;">Open-ended art activities nurture imagination and encourage self-expression from an early age.</p>
+          </div>
         </div>
         <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-icon" style="background:var(--coral-light);"><img src="images/focus_calm.png" alt="Improves Focus & Calm"></div>
-          <h4>Improves Focus &amp; Calm</h4>
-          <p style="font-size:.9rem;margin-top:.5rem;">Coloring promotes mindfulness, reduces anxiety, and improves attention span in children and adults.</p>
+          <div class="benefit-img-wrap" style="background:var(--coral-light);">
+            <img src="images/focus_calm.png" alt="Improves Focus & Calm">
+          </div>
+          <div class="benefit-content">
+            <h4>Improves Focus &amp; Calm</h4>
+            <p style="font-size:.9rem;margin-top:.5rem;">Coloring promotes mindfulness, reduces anxiety, and improves attention span in children and adults.</p>
+          </div>
         </div>
         <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-icon" style="background:var(--purple-light);"><img src="images/early_learning.png" alt="Supports Early Learning"></div>
-          <h4>Supports Early Learning</h4>
-          <p style="font-size:.9rem;margin-top:.5rem;">Our activity books integrate letters, numbers, shapes, and concepts to reinforce school learning.</p>
+          <div class="benefit-img-wrap" style="background:var(--purple-light);">
+            <img src="images/early_learning.png" alt="Supports Early Learning">
+          </div>
+          <div class="benefit-content">
+            <h4>Supports Early Learning</h4>
+            <p style="font-size:.9rem;margin-top:.5rem;">Our activity books integrate letters, numbers, shapes, and concepts to reinforce school learning.</p>
+          </div>
         </div>
         <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-icon" style="background:var(--sky-blue-light);"><img src="images/cultural_awareness.png" alt="Cultural Awareness"></div>
-          <h4>Cultural Awareness</h4>
-          <p style="font-size:.9rem;margin-top:.5rem;">Themed collections introduce children to animals, nature, history, and cultures around the world.</p>
+          <div class="benefit-img-wrap" style="background:var(--sky-blue-light);">
+            <img src="images/cultural_awareness.png" alt="Cultural Awareness">
+          </div>
+          <div class="benefit-content">
+            <h4>Cultural Awareness</h4>
+            <p style="font-size:.9rem;margin-top:.5rem;">Themed collections introduce children to animals, nature, history, and cultures around the world.</p>
+          </div>
         </div>
         <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-icon" style="background:var(--yellow-light);"><img src="images/confidence.png" alt="Builds Confidence"></div>
-          <h4>Builds Confidence</h4>
-          <p style="font-size:.9rem;margin-top:.5rem;">Completing creative projects gives children a sense of accomplishment and pride in their work.</p>
+          <div class="benefit-img-wrap" style="background:var(--yellow-light);">
+            <img src="images/confidence.png" alt="Builds Confidence">
+          </div>
+          <div class="benefit-content">
+            <h4>Builds Confidence</h4>
+            <p style="font-size:.9rem;margin-top:.5rem;">Completing creative projects gives children a sense of accomplishment and pride in their work.</p>
+          </div>
         </div>
       </div>
       <!-- Stats Bar -->

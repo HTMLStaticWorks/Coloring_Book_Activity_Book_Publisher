@@ -15,7 +15,11 @@
     /* Hero 2 */
     .hero2 { min-height: 100vh; background: var(--grad-hero); position: relative; overflow: hidden; display: flex; align-items: center; padding-top: var(--nav-h); }
     .hero2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    @media (max-width: 900px) { .hero2-grid { grid-template-columns: 1fr; text-align: center; } }
+    @media (max-width: 900px) {
+      .hero2-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero2-grid .btn-group { justify-content: center; }
+      .hero2-grid .hero2-stats { justify-content: center; }
+    }
     .hero2 h1 { color: var(--text-primary); font-size: clamp(2.4rem, 5vw, 4.2rem); margin-bottom: 1.25rem; }
     .hero2 p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
     .hero2-visual { position: relative; display: flex; justify-content: center; }
@@ -123,7 +127,7 @@
             <a href="free-downloads.html" class="btn btn-outline btn-lg">⬇️ Free Samples</a>
           </div>
           <!-- live stats -->
-          <div style="display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;">
+          <div class="hero2-stats" style="display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;">
             <div><div style="color:var(--text-primary);font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">500+</div><div style="color:var(--text-secondary);font-size:.85rem;">Unique Books</div></div>
             <div><div style="color:var(--text-primary);font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">4.9 ⭐</div><div style="color:var(--text-secondary);font-size:.85rem;">Avg Rating</div></div>
             <div><div style="color:var(--text-primary);font-family:var(--font-heading);font-weight:900;font-size:1.8rem;">50K+</div><div style="color:var(--text-secondary);font-size:.85rem;">Customers</div></div>

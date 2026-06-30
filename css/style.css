@@ -1600,7 +1600,7 @@ p { color: var(--text-secondary); }
 }
 @media (max-width: 900px) {
   .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex; order: -1; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-2 { grid-template-columns: 1fr; }
   .cart-drawer { width: 100%; max-width: 420px; }

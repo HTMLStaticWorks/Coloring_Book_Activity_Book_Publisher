@@ -105,9 +105,19 @@
     }
 
     @media (max-width: 1000px) {
-      .blog-layout { padding-inline: 1rem; }
+      .blog-layout { padding-inline: 0; }
       .blog-sidebar { width: 100%; max-width: 100%; }
       .sidebar-newsletter, .sidebar-widget { max-width: 100%; overflow: hidden; }
+    }
+
+    @media (max-width: 768px) {
+      .blog-layout .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .sidebar-widget, .sidebar-newsletter { padding: 1.25rem 1rem; }
+      .blog-info { padding: 1.25rem 1rem; }
+      .featured-post-info { padding: 1.5rem; }
     }
 
     @media (max-width: 700px) {

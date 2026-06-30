@@ -37,6 +37,8 @@
     .password-wrap { position: relative; width: 100%; }
     .password-wrap .form-input { width: 100%; padding-right: 3rem; }
     .password-toggle { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 1rem; border: none; background: transparent; color: var(--text-muted); }
+    /* Form row for side-by-side inputs */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     /* Benefits list on visual side */
     .login-benefit { display: flex; align-items: center; gap: .85rem; color: rgba(255,255,255,.85); margin-bottom: .9rem; font-size: .95rem; }
     .login-benefit-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
@@ -112,20 +114,20 @@
               <label class="form-label">Email Address</label>
               <input type="email" id="loginEmail" class="form-input" placeholder="your@email.com" required autocomplete="email" />
             </div>
-             <div class="form-group">
+            <div class="form-group" style="margin-bottom: 1.25rem;">
               <label class="form-label">Password</label>
               <div class="password-wrap">
                 <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required autocomplete="current-password" />
                 <button type="button" class="password-toggle" onclick="togglePwd('loginPassword', this)">👁️</button>
               </div>
-              <div style="text-align: right; margin-top: 0.35rem;">
-                <a href="#" style="font-size:.8rem;color:var(--sky-blue);font-weight:600;">Forgot password?</a>
-              </div>
             </div>
-            <label style="display:flex;align-items:center;gap:.5rem;font-size:.88rem;margin-bottom:1.5rem;cursor:pointer;">
-              <input type="checkbox" style="accent-color:var(--sky-blue);width:16px;height:16px;margin:0;" />
-              Remember me on this device
-            </label>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.88rem;cursor:pointer;margin:0;">
+                <input type="checkbox" style="accent-color:var(--sky-blue);width:16px;height:16px;margin:0;" />
+                Remember me
+              </label>
+              <a href="#" style="font-size:.8rem;color:var(--sky-blue);font-weight:600;">Forgot password?</a>
+            </div>
             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">🔑 Sign In</button>
           </form>
 
