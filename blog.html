@@ -16,6 +16,11 @@
     /* Custom blog hero */
     .blog-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     @media (max-width: 900px) { .blog-hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; } }
+    .blog-hero-content { text-align: left; }
+    @media (max-width: 900px) {
+      .blog-hero-content { text-align: center; }
+      .blog-hero-content p { margin-inline: auto; }
+    }
     .blog-hero-img-wrap { display: flex; justify-content: center; align-items: center; }
     .blog-hero-img { max-width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); transform: rotate(1.5deg); transition: transform var(--transition); }
     .blog-hero-img:hover { transform: rotate(0deg) scale(1.02); }
@@ -98,6 +103,17 @@
     [data-theme="dark"] .sidebar-widget.promo-widget .promo-text {
       color: var(--text-secondary);
     }
+
+    @media (max-width: 1000px) {
+      .blog-layout { padding-inline: 1rem; }
+      .blog-sidebar { width: 100%; max-width: 100%; }
+      .sidebar-newsletter, .sidebar-widget { max-width: 100%; overflow: hidden; }
+    }
+
+    @media (max-width: 700px) {
+      .blog-card { transform: translateZ(0); }
+      .blog-card .blog-img { border-top-left-radius: inherit; border-top-right-radius: inherit; }
+    }
   </style>
 </head>
 <body>
@@ -149,7 +165,7 @@
       <div class="breadcrumb" style="justify-content:center; margin-bottom: 2rem;"><a href="index.html">Home</a> <span>›</span> <span>Blog</span></div>
       
       <div class="blog-hero-grid">
-        <div style="text-align: left;">
+        <div class="blog-hero-content">
           <span class="section-label label-blue" style="margin-bottom: 1rem;">Creative Learning Hub</span>
           <h1 class="reveal" style="font-size: clamp(2.5rem, 5.5vw, 4.2rem); font-weight: 900; margin-bottom: 1.25rem;">ColorSpark Blog</h1>
           <p class="reveal reveal-delay-1" style="font-size: 1.12rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.75; max-width: 520px;">

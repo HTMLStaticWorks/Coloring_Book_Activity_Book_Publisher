@@ -134,121 +134,139 @@
   <!-- FREE PACKS -->
   <section class="section" id="free-packs">
     <div class="container">
-      <div class="dl-packs-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
-        <!-- Left: Download list -->
-        <div>
-          <div class="reveal">
-            <span class="section-label label-purple">Sample Pages</span>
-            <h2 class="section-title">Free Sample Pages</h2>
-            <p style="margin-bottom:2rem;">One free page from each of our best-selling collections. Download, print, and enjoy!</p>
+      <!-- Top: Gate form -->
+      <div class="reveal" style="max-width: 800px; margin: 0 auto 3.5rem;">
+        <div class="gate-box">
+          <div style="font-size:3rem;margin-bottom:1rem;">🎁</div>
+          <h3>Get <span class="gradient-text">5 Free</span> Premium Pages!</h3>
+          <p style="color:var(--text-secondary);margin-bottom:.5rem;">Sign up free and instantly unlock our exclusive 5-page starter pack — one page from each of our top collections.</p>
+          <div class="gate-perks">
+            <span class="gate-perk">5 Premium Sample Pages</span>
+            <span class="gate-perk">Instant PDF Download</span>
+            <span class="gate-perk">Weekly Free Content</span>
+            <span class="gate-perk">No Credit Card Needed</span>
+            <span class="gate-perk">Cancel Anytime</span>
           </div>
-
-          <div class="download-pack reveal">
-            <div class="dl-pack-icon" style="background:linear-gradient(135deg,#E3F2FD,#B3E5FC);">🦁</div>
-            <div class="dl-pack-info">
-              <div class="dl-pack-title">Lion Coloring Page — Animal Kingdom</div>
-              <div class="dl-pack-meta">1 Page · Ages 4–8 · A4 / US Letter · PDF</div>
-              <div class="dl-pack-tags">
-                <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Animals</span>
-                <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Kids</span>
-                <span class="dl-tag" style="background:var(--purple-light);color:var(--purple-dark);">Free Sample</span>
-              </div>
+          <form class="download-gate-form" style="text-align:left;">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" placeholder="Enter your name..." required />
             </div>
-            <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🦁 Lion Coloring Page')">⬇️ Download</a>
-          </div>
-
-          <div class="download-pack reveal reveal-delay-1">
-            <div class="dl-pack-icon" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7);">🌸</div>
-            <div class="dl-pack-info">
-              <div class="dl-pack-title">Mandala Sample — Calm Coloring Series</div>
-              <div class="dl-pack-meta">1 Page · Ages 12+ · A4 / US Letter · PDF</div>
-              <div class="dl-pack-tags">
-                <span class="dl-tag" style="background:var(--purple-light);color:var(--purple-dark);">Mandala</span>
-                <span class="dl-tag" style="background:var(--coral-light);color:var(--coral-dark);">Adults</span>
-                <span class="dl-tag" style="background:#E8F5E9;color:#2E7D32;">Free Sample</span>
-              </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="your@email.com" required />
             </div>
-            <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🌸 Mandala Sample')">⬇️ Download</a>
-          </div>
-
-          <div class="download-pack reveal reveal-delay-2">
-            <div class="dl-pack-icon" style="background:linear-gradient(135deg,#1A1A2E,#16213E);">🚀</div>
-            <div class="dl-pack-info">
-              <div class="dl-pack-title">Space Activity Sheet — Explorer Series</div>
-              <div class="dl-pack-meta">1 Page · Ages 6–12 · A4 / US Letter · PDF</div>
-              <div class="dl-pack-tags">
-                <span class="dl-tag" style="background:rgba(41,182,246,.15);color:var(--sky-blue);">Space</span>
-                <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Kids</span>
-                <span class="dl-tag" style="background:rgba(155,89,182,.1);color:var(--purple);">Activity</span>
-              </div>
+            <div class="form-group">
+              <label class="form-label">I am a...</label>
+              <select class="form-select" required>
+                <option value="">Select...</option>
+                <option>Parent</option>
+                <option>Teacher / Educator</option>
+                <option>Homeschool Parent</option>
+                <option>School Administrator</option>
+                <option>Coloring Enthusiast</option>
+              </select>
             </div>
-            <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🚀 Space Activity Sheet')">⬇️ Download</a>
-          </div>
+            <button type="submit" class="btn btn-primary btn-lg confetti-btn" style="width:100%;justify-content:center;">⬇️ Download 5 Free Pages</button>
+          </form>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-top:1rem;">🔒 We respect your privacy. No spam, ever.</p>
+        </div>
+      </div>
 
-          <div class="download-pack reveal reveal-delay-3">
-            <div class="dl-pack-icon" style="background:linear-gradient(135deg,#FFFDE7,#FFF9C4);">🔤</div>
-            <div class="dl-pack-info">
-              <div class="dl-pack-title">ABC Tracing Page — Learn Your Letters</div>
-              <div class="dl-pack-meta">1 Page · Ages 3–6 · A4 / US Letter · PDF</div>
-              <div class="dl-pack-tags">
-                <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Educational</span>
-                <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Toddlers</span>
-              </div>
-            </div>
-            <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🔤 ABC Tracing Page')">⬇️ Download</a>
-          </div>
+      <div class="text-center reveal" style="margin-bottom: 2.5rem;">
+        <span class="section-label label-purple">Sample Pages</span>
+        <h2 class="section-title">Free Sample Pages</h2>
+        <p style="max-width:600px; margin:0 auto;">One free page from each of our best-selling collections. Download, print, and enjoy!</p>
+      </div>
 
-          <div class="download-pack reveal reveal-delay-1">
-            <div class="dl-pack-icon" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);">🌿</div>
-            <div class="dl-pack-info">
-              <div class="dl-pack-title">Nature Butterfly — Nature Collection</div>
-              <div class="dl-pack-meta">1 Page · Ages 5–10 · A4 / US Letter · PDF</div>
-              <div class="dl-pack-tags">
-                <span class="dl-tag" style="background:#E8F5E9;color:#2E7D32;">Nature</span>
-                <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Kids</span>
-              </div>
+      <!-- Bottom: 2*3 Grid of cards -->
+      <div class="dl-packs-grid" style="display:grid;grid-template-columns:repeat(2, 1fr);gap:1.5rem;align-items:stretch;">
+        <!-- Card 1 -->
+        <div class="download-pack reveal" style="margin-bottom:0;">
+          <div class="dl-pack-icon" style="background:linear-gradient(135deg,#E3F2FD,#B3E5FC);">🦁</div>
+          <div class="dl-pack-info">
+            <div class="dl-pack-title">Lion Coloring Page — Animal Kingdom</div>
+            <div class="dl-pack-meta">1 Page · Ages 4–8 · A4 / US Letter · PDF</div>
+            <div class="dl-pack-tags">
+              <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Animals</span>
+              <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Kids</span>
+              <span class="dl-tag" style="background:var(--purple-light);color:var(--purple-dark);">Free Sample</span>
             </div>
-            <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🌿 Nature Butterfly')">⬇️ Download</a>
           </div>
+          <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🦁 Lion Coloring Page')">⬇️ Download</a>
         </div>
 
-        <!-- Right: Gate form -->
-        <div class="reveal-right">
-          <div class="gate-box">
-            <div style="font-size:3rem;margin-bottom:1rem;">🎁</div>
-            <h3>Get <span class="gradient-text">5 Free</span> Premium Pages!</h3>
-            <p style="color:var(--text-secondary);margin-bottom:.5rem;">Sign up free and instantly unlock our exclusive 5-page starter pack — one page from each of our top collections.</p>
-            <div class="gate-perks">
-              <span class="gate-perk">5 Premium Sample Pages</span>
-              <span class="gate-perk">Instant PDF Download</span>
-              <span class="gate-perk">Weekly Free Content</span>
-              <span class="gate-perk">No Credit Card Needed</span>
-              <span class="gate-perk">Cancel Anytime</span>
+        <!-- Card 2 -->
+        <div class="download-pack reveal reveal-delay-1" style="margin-bottom:0;">
+          <div class="dl-pack-icon" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7);">🌸</div>
+          <div class="dl-pack-info">
+            <div class="dl-pack-title">Mandala Sample — Calm Coloring Series</div>
+            <div class="dl-pack-meta">1 Page · Ages 12+ · A4 / US Letter · PDF</div>
+            <div class="dl-pack-tags">
+              <span class="dl-tag" style="background:var(--purple-light);color:var(--purple-dark);">Mandala</span>
+              <span class="dl-tag" style="background:var(--coral-light);color:var(--coral-dark);">Adults</span>
+              <span class="dl-tag" style="background:#E8F5E9;color:#2E7D32;">Free Sample</span>
             </div>
-            <form class="download-gate-form" style="text-align:left;">
-              <div class="form-group">
-                <label class="form-label">Your Name</label>
-                <input type="text" class="form-input" placeholder="Enter your name..." required />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" placeholder="your@email.com" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label">I am a...</label>
-                <select class="form-select" required>
-                  <option value="">Select...</option>
-                  <option>Parent</option>
-                  <option>Teacher / Educator</option>
-                  <option>Homeschool Parent</option>
-                  <option>School Administrator</option>
-                  <option>Coloring Enthusiast</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-primary btn-lg confetti-btn" style="width:100%;justify-content:center;">⬇️ Download 5 Free Pages</button>
-            </form>
-            <p style="font-size:.78rem;color:var(--text-muted);margin-top:1rem;">🔒 We respect your privacy. No spam, ever.</p>
           </div>
+          <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🌸 Mandala Sample')">⬇️ Download</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="download-pack reveal reveal-delay-2" style="margin-bottom:0;">
+          <div class="dl-pack-icon" style="background:linear-gradient(135deg,#1A1A2E,#16213E);">🚀</div>
+          <div class="dl-pack-info">
+            <div class="dl-pack-title">Space Activity Sheet — Explorer Series</div>
+            <div class="dl-pack-meta">1 Page · Ages 6–12 · A4 / US Letter · PDF</div>
+            <div class="dl-pack-tags">
+              <span class="dl-tag" style="background:rgba(41,182,246,.15);color:var(--sky-blue);">Space</span>
+              <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Kids</span>
+              <span class="dl-tag" style="background:rgba(155,89,182,.1);color:var(--purple);">Activity</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🚀 Space Activity Sheet')">⬇️ Download</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="download-pack reveal reveal-delay-3" style="margin-bottom:0;">
+          <div class="dl-pack-icon" style="background:linear-gradient(135deg,#FFFDE7,#FFF9C4);">🔤</div>
+          <div class="dl-pack-info">
+            <div class="dl-pack-title">ABC Tracing Page — Learn Your Letters</div>
+            <div class="dl-pack-meta">1 Page · Ages 3–6 · A4 / US Letter · PDF</div>
+            <div class="dl-pack-tags">
+              <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Educational</span>
+              <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Toddlers</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🔤 ABC Tracing Page')">⬇️ Download</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="download-pack reveal reveal-delay-1" style="margin-bottom:0;">
+          <div class="dl-pack-icon" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);">🌿</div>
+          <div class="dl-pack-info">
+            <div class="dl-pack-title">Nature Butterfly — Nature Collection</div>
+            <div class="dl-pack-meta">1 Page · Ages 5–10 · A4 / US Letter · PDF</div>
+            <div class="dl-pack-tags">
+              <span class="dl-tag" style="background:#E8F5E9;color:#2E7D32;">Nature</span>
+              <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Kids</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🌿 Nature Butterfly')">⬇️ Download</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="download-pack reveal reveal-delay-2" style="margin-bottom:0;">
+          <div class="dl-pack-icon" style="background:linear-gradient(135deg,#FFE0B2,#FFB74D);">🦕</div>
+          <div class="dl-pack-info">
+            <div class="dl-pack-title">Dino Coloring Page — Dino World</div>
+            <div class="dl-pack-meta">1 Page · Ages 4–8 · A4 / US Letter · PDF</div>
+            <div class="dl-pack-tags">
+              <span class="dl-tag" style="background:var(--sky-blue-light);color:var(--sky-blue-dark);">Dinosaurs</span>
+              <span class="dl-tag" style="background:var(--yellow-light);color:var(--yellow-dark);">Kids</span>
+              <span class="dl-tag" style="background:var(--purple-light);color:var(--purple-dark);">Free Sample</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-yellow btn-sm flex-shrink-0" onclick="event.preventDefault();showDownloadToast('🦕 Dino Coloring Page')">⬇️ Download</a>
         </div>
       </div>
     </div>
